@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | SQLMaster</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-database"></i>
+                    <span>SQL<span class="accent">Master</span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#SQL"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="#PLSQL"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="all-topics.html"><i class="fas fa-list"></i> All Topics</a></li>
+                    <li><a href="account.html" class="active"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Account Section -->
+    <section class="account-section">
+        <div class="container">
+            <div class="account-container">
+                <!-- Login Form -->
+                <div class="account-form" id="loginForm">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to continue your learning journey</p>
+                    </div>
+                    
+                    <form id="login">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="loginPassword" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </form>
+                    
+                    <div class="social-login">
+                        <p>Or sign in with</p>
+                        <div class="social-buttons">
+                            <button class="btn btn-outline btn-social"><i class="fab fa-google"></i> Google</button>
+                            <button class="btn btn-outline btn-social"><i class="fab fa-github"></i> GitHub</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        Don't have an account? <a href="#" id="showRegister">Sign up</a>
+                    </div>
+                </div>
+                
+                <!-- Register Form (Hidden by default) -->
+                <div class="account-form" id="registerForm" style="display: none;">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Join our community of learners</p>
+                    </div>
+                    
+                    <form id="register">
+                        <div class="form-group">
+                            <label for="registerName">Full Name</label>
+                            <input type="text" id="registerName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="registerPassword" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Weak</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirm">Confirm Password</label>
+                            <input type="password" id="registerConfirm" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    </form>
+                    
+                    <div class="form-footer">
+                        Already have an account? <a href="#" id="showLogin">Sign in</a>
+                    </div>
+                </div>
+                
+                <!-- Account Dashboard (Shown after login) -->
+                <div class="account-dashboard" id="accountDashboard" style="display: none;">
+                    <div class="dashboard-header">
+                        <div class="user-profile">
+                            <div class="avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar">
+                            </div>
+                            <div class="user-info">
+                                <h3>Ganesh</h3>
+                                <p>ganesh@gmail.com</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm" id="logoutBtn">Sign Out</button>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Courses Completed</h4>
+                                <p>12</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Hours Learned</h4>
+                                <p>24.5</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h4>Your Progress</h4>
+                        <div class="progress-list">
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <h5>Basic SQL</h5>
+                                    <span>75% Complete</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <h5>PL/SQL Fundamentals</h5>
+                                    <span>40% Complete</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h4>Recent Activity</h4>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Completed lesson <strong>"Joins in SQL"</strong></p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Started course <strong>"PL/SQL Procedures"</strong></p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+    <script>
+        // Toggle between login and register forms
+        const showRegister = document.getElementById('showRegister');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const accountDashboard = document.getElementById('accountDashboard');
+        
+        if (showRegister && showLogin) {
+            showRegister.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            });
+            
+            showLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            });
+        }
+        
+        // Password visibility toggle
+        const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+        togglePasswordButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            });
+        });
+        
+        // Password strength indicator
+        const passwordInput = document.getElementById('registerPassword');
+        if (passwordInput) {
+            passwordInput.addEventListener('input', function() {
+                const strengthBar = document.querySelector('.strength-bar');
+                const strengthText = document.querySelector('.strength-text');
+                const password = this.value;
+                let strength = 0;
+                
+                // Length check
+                if (password.length >= 8) strength++;
+                if (password.length >= 12) strength++;
+                
+                // Complexity checks
+                if (/[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^A-Za-z0-9]/.test(password)) strength++;
+                
+                // Update UI
+                const width = strength * 20;
+                strengthBar.style.width = `${width}%`;
+                
+                if (strength <= 2) {
+                    strengthBar.style.backgroundColor = '#ef4444';
+                    strengthText.textContent = 'Weak';
+                } else if (strength <= 4) {
+                    strengthBar.style.backgroundColor = '#f59e0b';
+                    strengthText.textContent = 'Medium';
+                } else {
+                    strengthBar.style.backgroundColor = '#10b981';
+                    strengthText.textContent = 'Strong';
+                }
+            });
+        }
+        
+        // Form submission (simulated)
+        const loginFormEl = document.getElementById('login');
+        const registerFormEl = document.getElementById('register');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        if (loginFormEl) {
+            loginFormEl.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Simulate successful login
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'none';
+                accountDashboard.style.display = 'block';
+            });
+        }
+        
+        if (registerFormEl) {
+            registerFormEl.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Simulate successful registration
+                registerForm.style.display = 'none';
+                loginForm.style.display = 'none';
+                accountDashboard.style.display = 'block';
+            });
+        }
+        
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                // Simulate logout
+                accountDashboard.style.display = 'none';
+                loginForm.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>
