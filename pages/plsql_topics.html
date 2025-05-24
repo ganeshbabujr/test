@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesh</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-database"></i>
+                    <span>SQL<span class="accent"> Master</span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="./sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>    
+  <!--              <li><a href="./pages/plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>       
+                    <li><a href="#" class="active"><i class="fas fa-list"></i> All Topics</a></li>        --> 
+                    <li><a href="./plsql/plsql.html"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li> 
+                    <li><a href="account.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="../index.html">Home</a></li>
+                <li>All Topics</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- All Topics Section -->
+    <section class="all-topics">
+        <div class="container">
+            <div class="section-header">
+                <h1>Oracle <span class="gradient-text">PL/SQL</span></h1>
+                <p class="section-subtitle">Browse our complete collection of Oracle Pl/SQL learning materials</p>
+            </div>
+
+            <div class="topic-filters">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search topics...">
+                    <button id="searchButton"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="btn btn-outline active" data-filter="all">All</button>
+<!--
+                    <button class="btn btn-outline" data-filter="sql">SQL</button>
+                    <button class="btn btn-outline" data-filter="plsql">PL/SQL</button>
+-->
+                    <button class="btn btn-outline" data-filter="beginner">Beginner</button>
+                    <button class="btn btn-outline" data-filter="intermediate">Intermediate</button>
+                    <button class="btn btn-outline" data-filter="advanced">Advanced</button>
+                </div>
+            </div>
+
+            <div class="masonry-grid">
+
+
+
+
+
+                 <!-- Anonymous Block -->
+                <div class="masonry-item" data-difficulty="beginner">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge beginner">Beginner</span>
+                        </div>
+                        <h3>Anonymous Block</h3>
+                        <p>An unnamed PL/SQL code block that is executed immediately and not stored in the database.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 1 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 00m</span>
+                        </div>
+                    </a>
+                </div>
+                
+
+                <!-- Control -->
+                <div class="masonry-item" data-difficulty="intermediate">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                        </div>
+                        <h3>Control Statements </h3>
+                        <p>Statements controlling program execution flow with conditions and loops</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 8 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 15m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+                      
+                <!-- Cursor -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                           <span class="difficulty-badge advanced">Advanced</span>
+                        </div>
+                        <h3>Cursor</h3>
+                        <p>A pointer to a private SQL area holding a query result set for processing rows one by one.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 3 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 45m</span>
+                        </div>
+                    </a>
+                </div>
+                
+
+
+
+                <!-- exception handling -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">Advanced</span>
+                        </div>
+                        <h3>Exception Handling</h3>
+                        <p>Handles runtime errors and unusual conditions, preventing termination</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 4 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                <!-- stored procedure -->
+                <div class="masonry-item" data-difficulty="intermediate">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                        </div>
+                        <h3>Stored Procedure</h3>
+                        <p>Named PL/SQL code stored in database to execute actions, accepts parameters.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+                
+                <!-- stored function -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">Advanced</span>
+                        </div>
+                        <h3>Stored Function</h3>
+                        <p> Named PL/SQL code stored in database, computes, and must return one value.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 1 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                        </div>
+                    </a>
+                </div>
+                
+
+                
+                <!-- Package -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">Advanced</span>
+                        </div>
+                        <h3>Package</h3>
+                        <p>Groups related PL/SQL objects like procedures, functions, variables into one unit.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 4 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                <!-- Trigger -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">advanced</span>
+                        </div>
+                        <h3>Triggers </h3>
+                        <p>Automatically execute upon INSERT, UPDATE, DELETE events on tables/views.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 3 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                <!-- Collections -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">advanced</span>
+                        </div>
+                        <h3>Collections </h3>
+                        <p>Data structures holding multiple elements of the same data type, like arrays.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 4 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 4h 00m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+                <!-- Ref Cursor -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">Advanced</span>
+                        </div>
+                        <h3>Ref Cursor</h3>
+                        <p>A pointer/handle to a query result set, often passed between PL/SQL or client.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 3 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- UTL File -->
+                <div class="masonry-item" data-difficulty="advanced">
+                    <a href="#" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">Advanced</span>
+                        </div>
+                        <h3>UTL File</h3>
+                        <p>PL/SQL package to read and write operating system text files from the database.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 1 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+                 <!-- Performance Tuning -->
+                <div class="masonry-item" data-category="plsql" data-difficulty="advanced">
+                    <a href="../pages/plsql/performance.html" class="modern-topic-card">
+                        <div class="card-header">
+
+                            <span class="difficulty-badge advanced">advanced</span>
+                        </div>
+                        <h3>Performance Tuning</h3>
+                        <p>Optimizing database and query execution to improve speed, efficiency, and resource utilization.</p>
+                        <div class="card-footer">
+                            <span class="lesson-count"><i class="fas fa-list-ol"></i> 10 lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 4h 30m</span>
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+                
+                <div class="masonry-item" data-category="sql" data-difficulty="beginner">
+                    <a href="sql/basic.html" class="modern-topic-card">
+                        <div class="card-header">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="topic-type">SQL</span>
+                        </div>
+                        <h3>Basic SQL</h3>
+                        <p>Master SELECT statements, WHERE clauses, and sorting with ORDER BY.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-book-open"></i> 12 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 2h 15m</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="masonry-item" data-category="sql" data-difficulty="intermediate">
+                    <a href="sql/joins.html" class="modern-topic-card">
+                        <div class="card-header">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <span class="topic-type">SQL</span>
+                        </div>
+                        <h3>Joins</h3>
+                        <p>Understand INNER, LEFT, RIGHT, and FULL joins to combine data from multiple tables.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-book-open"></i> 8 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 1h 45m</span>
+                        </div>
+                    </a>
+                </div>
+
+       
+                <div class="masonry-item" data-category="plsql" data-difficulty="beginner">
+                    <a href="plsql/blocks.html" class="modern-topic-card">
+                        <div class="card-header">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="topic-type">PL/SQL</span>
+                        </div>
+                        <h3>PL/SQL Blocks</h3>
+                        <p>Understand the structure of PL/SQL blocks with DECLARE, BEGIN, EXCEPTION sections.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-book-open"></i> 6 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 1h 15m</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="masonry-item" data-category="plsql" data-difficulty="intermediate">
+                    <a href="plsql/procedures.html" class="modern-topic-card">
+                        <div class="card-header">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <span class="topic-type">PL/SQL</span>
+                        </div>
+                        <h3>Procedures</h3>
+                        <p>Create and manage stored procedures for reusable database operations.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-book-open"></i> 9 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 2h 10m</span>
+                        </div>
+                    </a>
+                </div>
+
+           
+    -->
+            </div>
+
+            <div class="pagination">
+             
+                <a href="../index.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> HOME </i>
+                </button>
+                <!--
+                       <button id="prevPage" class="btn btn-outline"><i class="fas fa-chevron-left"></i></button>
+                <div class="page-numbers">
+                    <button class="btn btn-outline active">1</button>
+                    <button class="btn btn-outline">2</button>
+                    <button class="btn btn-outline">3</button>
+                    <span>...</span>
+                    <button class="btn btn-outline">8</button>
+                </div>
+
+                <button id="nextPage" class="btn btn-outline"><i class="fas fa-chevron-right"></i></button>
+  -->
+
+                <a href="../pages/sql_topics.html" class="btn btn-outline" id="nextPage"> SQL <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Topic filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-buttons .btn');
+        const masonryItems = document.querySelectorAll('.masonry-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                
+                masonryItems.forEach(item => {
+                    if (filter === 'all' || 
+                        item.dataset.category === filter || 
+                        item.dataset.difficulty === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function filterTopics() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            masonryItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const description = item.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        searchInput.addEventListener('input', filterTopics);
+        searchButton.addEventListener('click', filterTopics);
+    </script>
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

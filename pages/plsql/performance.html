@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Tuning</title>
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-database"></i>
+                    <div class="logo">SQL<span> Master</span></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../account.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>PERFORMANCE TUNING</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge advanced">ADVANCED</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+<p>Performance Tuning is to Reduce runtime of a SQL query and PL/SQL Block.</p>
+
+<h3>Scenario</h3>
+<pre><code class="language-sql"> A query usually runs for 4 mins, but today it ran for 45 mins?</code></pre>
+
+<h3>Initial Investigation</h3>
+<p>First, I will do the initial investigation:</p>
+
+<h3>1. Verify Execution Time</h3>
+<p>I will verify the execution time yesterday and today to confirm the performance degradation.</p>
+<pre><code class="language-sql">SELECT 
+    sql_id, 
+    elapsed_time/1000000 AS elapsed_seconds, 
+    executions, 
+    buffer_gets, 
+    disk_reads, 
+    last_active_time 
+FROM v$sql 
+WHERE sql_text LIKE '%your_query_identifier%' 
+ORDER BY last_active_time DESC;</code></pre>
+
+<h3>2. Check Data Volume Increase</h3>
+<p>I will check if the data volume has increased significantly since yesterday.</p>
+<pre><code class="language-sql">SELECT COUNT(*) FROM your_table WHERE trunc(last_update_date) = trunc(SYSDATE - 1);
+SELECT COUNT(*) FROM your_table WHERE trunc(last_update_date) = trunc(SYSDATE);</code></pre>
+
+<h3>3. Check for Large Batch Jobs</h3>
+<p>I will check if any large batch jobs were loaded overnight:</p>
+<pre><code class="language-sql">SELECT 
+    job_name,
+    last_start_date,
+    last_run_duration
+FROM dba_scheduler_jobs
+WHERE owner = 'YOUR_SCHEMA';</code></pre>
+
+<pre><code class="language-sql">SELECT job, last_date, last_sec FROM dba_jobs;</code></pre>
+
+<h3>4. Analyze Execution Plan</h3>
+<p>I will analyze the execution plan or use autotrace to understand the type of Scan and Join used by the optimizer:</p>
+<pre><code class="language-sql">EXPLAIN PLAN FOR &lt;your_query&gt;;
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);</code></pre>
+
+<p>Join Methods:</p>
+<pre><code class="language-sql">1. Nested Loop Join
+2. Hash Join
+3. Sort Join</code></pre>
+
+<h3>5. AWR Report Analysis</h3>
+<p>I will get the AWR report from the DBA team and compare yesterday's execution plan with today's plan for sudden changes:</p>
+<pre><code class="language-sql">SELECT 
+    snap_id,
+    end_interval_time,
+    space_used_total/1024/1024 size_mb
+FROM dba_hist_seg_stat
+WHERE obj# = (SELECT object_id FROM dba_objects WHERE object_name = 'YOUR_TABLE')
+ORDER BY snap_id DESC;</code></pre>
+
+<h3>6. Gather Statistics</h3>
+<p>I will gather statistics to verify if the table statistics are recent or outdated:</p>
+<pre><code class="language-sql">EXEC DBMS_STATS.GATHER_TABLE_STATS('SCHEMA', 'TABLE');</code></pre>
+
+<h3>7. Index Analysis</h3>
+<p>To check whether indexes are used and valid or not to avoid full table scan bcs it significantly reduce performance</p>
+<p>To check  index or not in that particular column used in where clause in user_ind_columns</p>
+<pre><code class="language-sql">SELECT index_name, status FROM user_indexes WHERE status != 'VALID';</code></pre>
+
+<p>If not available will create index, if it available and it is unusable it may affected for some reasons i try to rebuild </p>
+<pre><code class="language-sql">ALTER INDEX TEST_IND REBUILD; </code></pre>
+<pre><code class="language-sql">ALTER INDEX TEST_IND REBUILD ONLINE;       -- for Production </code></pre>
+<p>Index is available and status is valid - Huge volume of data is fetching more than 60% so drop the index </p>
+<pre><code class="language-sql">DROP INDEX TEST_IND;</code></pre>
+
+
+<h3>8. Using Hints to Stabilize Plan</h3>
+<p>We can use hints to stabilize the plan:</p>
+<pre><code class="language-sql">SELECT /*+ NOINDEX (employees,EMP_EMP_ID_PK) */ first_name, salary FROM employees;</code></pre>
+
+<h3>9. Join Table Order and Subqueries</h3>
+
+<ul>
+<li>I will check the joining table in correct order, Usally query will execute left to right so smallest table will be written in left side.</li>
+<li>Incase If 1 Table has 100 columns and Table 2 has 5 columns i prefer for Scalar Sub query insted of joins</li>
+<li>If there is any correlated sub query used we can use Joins because correlated sub query sometimes perform very slow.</li>
+<li>If there is a Aggregate Function we can write with Analytical Function because compared with group function Analytical Function will be faster</li>
+<li>If there is Decode can write it as Case</li>
+</ul>
+
+<h3>10. Table Partitioning</h3>
+<p>If the table size is more than 2GB, we can partition the table because Table Partition will subdivided Table into small pieces and improve performance</p>
+<p>using Tbale Partition </p>
+<ol>
+<li>Increase Performance</li>
+<li>Increase Availability</li>
+<li>Enable Storage Cost Optimization.</li>
+<li>We can do Backup in Partition wise.</li>
+<li>We can Create Index.</li>
+<li>4 Partition | 3 - Ready Only | 1 - write /read</li>
+</ol>
+<p>we can check if there is any existing partition is there by:</p>
+<pre><code class="language-sql">SELECT * FROM user_tab_partitions;</code></pre>
+
+<h3>11. Check Locks and Blocking Sessions</h3>
+<p>I will check for locks and blocking sessions, sometimes performance issue araise due to locks and blocking session.</p>
+<pre><code class="language-sql">SELECT * FROM v$session WHERE blocking_session IS NOT NULL;</code></pre>
+<p>we cna check for waiting session </p>
+<pre><code class="language-sql">SELECT * FROM v$session_wait WHERE sid IN (SELECT sid FROM v$session WHERE status = 'ACTIVE');</code></pre>
+
+<br><hr><br>
+
+
+<h2>PL/SQL Block Tuning</h2>
+<p>If the issue is with a PL/SQL Block:</p>
+
+<h3>1. Bulk Collect and FORALL</h3>
+<p>If we are fetching a large volume of data in a cursor loop, we can use Bulk Collect and FORALL to reduce context switching between PL/SQL and SQL.</p>
+
+<h3>2. Using DBMS_PROFILER</h3>
+<p>We can use DBMS_PROFILER to get information about the PL/SQL code execution and run time and stored in a Table</p>
+<pre><code class="language-sql">EXECUTE dbms_profiler.start_profiler('Proc_Performance_Chk_2');		-- proc_performance_chk_2 run command to identify
+
+EXECUTE procedure_c;
+
+EXECUTE dbms_profiler.stop_profiler();</code></pre>
+
+
+<p>Profiler Data Available in 3 Tables</p>
+
+<pre><code class="language-sql">SELECT * FROM plsql_profiler_runs;
+SELECT * FROM plsql_profiler_units;
+SELECT * FROM plsql_profiler_data;
+</code></pre>
+
+<p>Joing 3 Tbales we can get total time Taken and Total occurance</p>
+<pre><code class="language-sql">SELECT r.run_date
+     , r.run_comment
+     , u.unit_type
+     , u.unit_name
+     , d.line#
+     , d.total_occur
+     , d.total_time
+     , d.min_time
+     , d.max_time
+     , ROUND(d.total_time/1000000000)total_time_in_sec
+     , TRUNC((d.total_time) / (SUM(d.total_time) OVER())*100,2) pct_time_taken
+  FROM plsql_profiler_runs r
+     , plsql_profiler_units u
+     , plsql_profiler_data d
+WHERE r.runid = u.runid
+  AND r.runid = d.runid
+  AND u.unit_number = d.unit_number
+  AND r.run_comment = 'Proc_Performance_Chk_2'
+ORDER BY d.total_time DESC;
+</code></pre>
+
+<br>
+<h3>3. Using GTT</h3>
+
+<p>Using Global Temporary Table (GTT) is an effective way to improve PL/SQL block performance, especially when dealing with intermediate data processing.</p>
+
+<ul>
+<li>Reduce Repeated data fetching from large table    -- intermediate data is stored and resue</li>
+<li>Reduce Context Switch</li>
+<li>Recude Complex Joins and Aggregate Functions</li>
+<li>Avoid Table Lock</li>
+</ul>
+<br>
+<h3>Final Step</h3>
+<p>After making optimizations, always test the query again. Use SET STATISTICS to measure execution time or check v$sql for performance stats on the query.</p>
+
+<pre><code class="language-sql">SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(sql_id => 'optimized_sql_id',
+                                              format => 'ADVANCED ALLSTATS LAST'));
+</code></pre>
+
+<br>
+
+
+
+
+    
+                </article>
+
+            </div>
+  
+  <div class="lesson-navigation-buttons">
+       <a href="#" class="btn btn-outline"><i class="fas fa-chevron-left"></i> Previous Lesson</a>
+         <a href="#" class="btn btn-outline">Next Lesson <i class="fas fa-chevron-right"></i></a>
+   </div>
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>

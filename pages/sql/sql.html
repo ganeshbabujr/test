@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Interview</title>
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-database"></i>
+                    <div class="logo">SQL<span> Master</span></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../account.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>SQL Interview Questions</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge advanced">ADVANCED</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+
+
+<h3>1. Back End?</h3>
+			<ul>
+			<li>Oracle (SQl & PLSQL)</li>
+			<li>MYSQL (Owned By Oracle)</li>
+			<li>MS SQL Server</li>
+			<li>SQL Lite</li>
+			<li>Postgre SQL</li>
+			<li>Mongo DB</li>
+			<li>Maria DB</li>
+			<li>IBM DB2</li>
+			<li>Redis</li>
+			<li>Microsoft Azure</li>
+			 </ul>
+			 <hr>
+			 
+			 
+			<h3>2. Oracle Was Developed ?</h3>
+				
+				<p>C programming Language in 1977</p>
+			<hr>
+			
+			<h3>3. Oracle Versions?</h3>
+			<ul>
+			<li>6i</li>
+			<li>7i</li>
+			<li>8i</li>
+			<li>9i</li>
+			<li>10g - Express Edition</li>
+			<li>11g </li>
+			<li>12C	- Using</li>
+			<li>18C</li>
+			<li>19C</li>
+			<li>21C</li>
+			<li>23AI</li>
+				<br>
+				i for Internet |  	g for grid	 |	C for Cloud
+				
+			</ul>
+			<hr>
+			
+			<h3>4. Client Side Tools?</h3>
+			<ul>
+			<li>SQLPlus</li>
+			<li>SQL Developer</li>
+			<li>PLSQL Developer</li>
+			<li>Toad</li>
+			</ul>  
+			
+			<hr>
+			
+			<h3>5. What is User | Row | output </h3>
+			<ul>
+			<li>User - Schema</li>
+			<li>Row - Record</li>
+			<li>Output - Resultset</li>
+			</ul>
+			<hr> 
+				
+			<h3>6. What are the Schema Objects or Database Objects?</h3>
+			<ul>
+			<li>TABLE</li>
+			<li>VIEW</li>
+			<li>SEQUENCE</li>
+			<li>SYNONYM</li>
+			<li>INDEX</li>
+			<li>Materialized View</li>
+			<li>Stored PROCEDURE</li>
+			<li>Stored function</li>
+			<li>TRIGGER</li>
+			<li>Package</li>
+			</ul>
+			<hr>
+
+<h3>7. What is Schema Objects?</h3>
+<p>List of Objects which hold by Schema.</p>
+
+<hr>
+
+<h3>8. Types of Tables in Oracle?</h3>
+<ol>
+<li><strong>User Table</strong> - Which Contains User Information, Created and Maintained By User. tables like <em> order_tb, Intventory_tb, product_tb;</em>
+<li><strong>Data Dictionary Table</strong> - Which Contains Database Information, Created and Maintained By Database. Tables like <em>all_objects, all_tables,all_indexes,all_views, all_tab_columns;</em>
+</ol>
+<hr>
+
+<h3>9. SQL Bit Wise Operator?</h3>
+<ul>
+<li>& - AND	</li>
+<li>| - OR</li>
+<li>^ - exclusive OR</li>
+<li>~ - Not </li>
+</ul>
+<hr>
+
+<h3>10. What is Database?</h3>
+<p>Database is a Collection of Oranized data,  stored and accessed from local or remote.	</p>	
+
+<hr>
+
+<h3>11. What is RDBMS?</h3>
+<ul>
+<li>RDBMS - Relational Database Management System</li>
+<li>RDBMS is a program used to maintain a relational database</li>
+<li>RDBMS is the basis for all modern database systems such as MySQL, Microsoft SQL Server, Oracle.</li>
+<li>RDBMS uses SQL queries to access the data in the database.</li>
+</ul>
+
+<hr>
+            <h3>12. Diff DBMS and RDBMS?</h3>
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th><center>DBMS</center></th>
+                        <th><center>RDBMS</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. DBMS stands for Database Management System 	</td>
+                        <td>Relational Database Management System</td>
+                    </tr>
+                    <tr>
+                        <td>2. DBMS store the Data in the form of Files	</td>
+                        <td>RDBMS store the Data in the form of Tables</td>
+
+                    </tr>
+                    <tr>
+                        <td>3. DBMS designed to handle small amount of DATA	</td>
+                        <td>RDBMS designed to Handle Large DATA</td>
+                    </tr>
+
+					<tr>
+						<td>4. DBMS support single user at a TIME</td>
+						<td>RDBMS support multiple user at a Time.</td>
+					</tr>
+                </tbody>
+            </table>
+<hr>
+
+   
+<h3>13. What is Alias (AS)?</h3>
+<ul>
+<li>Used to rename column heading</li>
+<li>column_name / expression As "ALIAS_NAME"</li>
+<li>Mostly used with expression</li>
+</ul>
+
+<hr>
+
+<h3>14. What is NULL</h3>
+	<p>NULL is a Unknown VALUE</p>
+<ul>
+<li>NULL <> 0</li>
+<li>NULL <> Space </li>
+<li>NULL <> NULL</li>
+<li>NULL + Number = NULL</li>
+</ul>
+	<p>Any Arithmatic Operator with NULL is NULL</p>
+<hr>	
+
+
+<h3>15. Relational Operator?</h3>
+<ul>
+<li> >=  greater than equal</li>
+<li> <=  lessthan equal</li>
+<li> <> , != ,  ^= ,  not eaqual to</li>
+</ul>
+<hr>
+
+
+
+<h3>16. Oracle Operators</h3>
+	
+	<p>IN            |  NOT IN <br>
+		BETWEEN AND  |  NOT BETWEEN AND <br>
+		LIKE         |  NOT LIKE<br>
+		IS NULL      |   IS NOT NULL<br>
+    </p>
+	<hr>
+
+
+	<h3>17. Logical Operators.</h3>
+	<ul>
+	<li>AND</li>
+	<li>OR</li>
+	<li>NOT</li>
+	</ul>
+	<hr>
+
+
+	<h3>18. IN Process NULL</h3>
+	<p>NO </p>
+	<hr>
+	
+<h3>19. Pattern Matching | Wildcard Search?</h3>
+	<p>LIKE OPERATOR</p>
+
+<hr>
+
+
+
+<h3> 20. Difference Between Substring and Instring</h3>
+
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th><center>SUBSTR</center></th>
+                        <th><center>INSTR</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.Used to get part of the String	</td>
+                        <td>Used to get the position of the particular character.</td>
+                    </tr>
+                    <tr>
+                        <td>2. It has 3 argumnets: Input String, Starting Poisition, No of Characters to be print	</td>
+                        <td>It hasd 4 Arguments Input string, Character to be search, starting position, no of occurance</td>
+
+                    </tr>
+                   
+                </tbody>
+            </table>
+<hr>
+
+
+<h3>21. Oracle Functions</h3>
+<ul>
+  <li>
+    Single Row Function (n->n)
+    <span class="note">-- n number of rows input and n number of rows output</span>
+  </li>
+  <li>
+    Multiple Row Function (n->1)
+    <span class="note">-- n number of rows input and 1 number of row output</span>
+  </li>
+</ul>
+
+<h3>1. Single Row Function</h3>
+<ul>
+  <li>Case Function</li>
+  <li>Number Function</li>
+  <li>Date Function</li>
+  <li>Type Conversion</li>
+  <li>General Function | NULL Function</li>
+</ul>
+
+<h3>(i) Case Function</h3>
+<ul>
+  <li>
+    Case Manipulation
+    <ul>
+        <li style="font-size: 16px;"><pre><code class="language-sql">UPPER()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">LOWER()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">INITCAP()</code></li>
+      </ul>
+  </li>
+  <li>
+    Character Manipulation
+    <ul>
+        <li style="font-size: 16px;"><pre><code class="language-sql">LENGTH ()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">CONCAT()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">REVERSE()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">SUBSTR()</code> | <pre><code class="language-sql">INSTR()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">LPAD()</code> | <pre><code class="language-sql">RPAD()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">LTRIM ()</code> | <pre><code class="language-sql">RTRIM()</code></li>
+        <li style="font-size: 16px;"><pre><code class="language-sql">REPLACE ()</code> | <pre><code class="language-sql">TRANSLATE ()</code></li>
+      </ul>
+  </li>
+</ul>
+
+<h3>(ii) Number Function</h3>
+<ul>
+    <li style="font-size: 16px;"><pre><code class="language-sql">ROUND()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">TRUNC()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">CEIL()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">FLOOR()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">MOD()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">ABS()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">SIGN()</code></li>
+  </ul>
+<h3>(iii) Date Function</h3>
+<ul>
+    <li style="font-size: 16px;"><pre><code class="language-sql">MONTHS_BETWEEN ()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">ADD_MONTHS()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">NEXT_DAY ()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">LAST_DAY()</code></li>
+  </ul>
+
+<h3>(iv) Type Conversion</h3>
+<ul>
+    <li style="font-size: 16px;"><pre><code class="language-sql">TO_CHAR()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">TO_NUMBER()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">TO_DATE()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">TO_TIMESTAMP()</code></li>
+  </ul>
+
+<h3>(v) General Function | NULL Function</h3>
+<ul>
+    <li style="font-size: 16px;"><pre><code class="language-sql">NVL()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">NVL2()</code></li>
+    <li style="font-size: 16px;">
+      <pre><code class="language-sql">NULLIF()</code>
+      <span class="note">-- return null value if 2 expression is same otherwise it return 1st expression.</span>
+    </li>
+    <li style="font-size: 16px;">
+      <pre><code class="language-sql">COALESCE()</code>
+      <span class="note">-- print 1st not NULL value</span>
+    </li>
+  </ul>
+
+<h3>(2) Group Function | Aggregate Function</h3>
+<ul>
+    <li style="font-size: 16px;"><pre><code class="language-sql">MIN()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">MAX()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">SUM()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">AVG()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">COUNT()</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">GROUP BY</code></li>
+    <li style="font-size: 16px;"><pre><code class="language-sql">HAVING</code></li>
+  </ul>
+
+<hr>
+
+<h3>22. How many Nested Function we can Write?</h3>
+	<p>255 Nested Functions.</p>
+
+<hr>
+
+
+<h3> 23. Difference Between NVL and NVL2</h3>
+
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th><center>NVL</center></th>
+                        <th><center>NVL2</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. NVL has 2 arguments</td>
+                        <td>NVL2 has 3 arguments</td>
+                    </tr>
+                    <tr>
+                        <td>2. If 1st argument is NULL it return 2nd argument otherwise it return 1st argument</td>
+                        <td>IF 1st argument is NULL it return 3rd argument otherwise return 2nd</td>
+
+                    </tr>
+                   
+                </tbody>
+            </table>
+<hr>
+
+
+<h3>24. Query Execution Order.</h3>
+<ul>
+<li>FROM </li>
+<li>WHERE</li> 
+<li>GROUP BY </li>
+<li>HAVING </li>
+<li>SELECT </li>
+<li>ORDER BY</li> 
+</ul>
+
+---
+
+<ul>	
+	<li>FROM</li> 
+	<li>ON</li> 
+	<li>JOIN</li> 
+	<li>WHERE</li> 
+	<li>GROUP BY</li> 
+		  --WITH CUBE or WITH ROLLUP
+	<li>HAVING</li> 
+	<li>SELECT</li> 
+	<li>DISTINCT</li> 
+	<li>ORDER BY </li> 
+	<li>LIMIT</li> 
+</ul>
+
+<hr>
+
+
+<h3> 25. Difference Between WHERE clause and HAVING clause</h3>
+
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th><center>WHERE Clause</center></th>
+                        <th><center>HAVING Clause</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. WHERE follows FROM clause</td>
+                        <td>HAVING clause follows GROUP clause</td>
+                    </tr>
+                    <tr>
+                        <td>2. If it is a Normal Condition use WHERE clause</td>
+                        <td>Condition depends on Having Clause</td>
+
+                    </tr>
+					<tr>
+						<td>3. Restriction will happen after fetching</td>
+						<td>Restrinction will happen after Grouping</td>
+					</tr>
+                   
+                </tbody>
+            </table>
+<hr>
+
+
+<h3>26. Difference between Decode () and Case ()</h3>
+	<ul>
+	<li>Decode is a Function</li>
+	<li>Case is an Expression</li>
+	</ul>
+	<table>
+                
+		<thead>
+			<tr>
+				<th><center>Decode</center></th>
+				<th><center>CASE</center></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1. Decode is a Function </td>
+				<td>CASE is a Expression</td>
+			</tr>
+			<tr>
+				<td>2. Exact Match we use </td>
+				<td>We can use any Operators like <,>,+,<=</td>
+
+			</tr>
+			<tr>
+				<td>3. Oracle Standard</td>
+				<td>ANSI</td>
+			</tr>
+			<tr>
+				<td>4. We can use in SQL</td>
+				<td>we can use in both SQL and Pl/SQL</td>
+			</tr>
+			<tr>
+				<td>5. Slow</td>
+				<td>Fast</td>
+			</tr>
+		   
+		</tbody>
+	</table>
+
+	<ul>
+		<li>Decode can use in PLSQL but have some Limitations</li>
+		<li>Deocode can use only for compare equality not other conditions <, > </li>
+		<li>Decode return single value </li>
+		<li>Decode makes context switch b/w sql and plsql </li>
+		</ul>
+
+<hr>
+
+<h3>27. What is Join and Types of Join?</h3>
+	
+	Fetching Data from multiple table based on common column 
+
+	<ul>
+		<li>Equi Join (Matched Record)</li>
+		<li>Outer Join (Matched Record + Unmatched Record)
+		  <ul>
+			<li>Left Outer Join (Matched Record + Unmatched Record From Left side Table)</li>
+			<li>Right Outer Join (matched Record + Unmatched Record From Right side Table)</li>
+			<li>Full Outer Join (Matched Record + Unmatched Record From Both side Table)</li>
+		  </ul>
+		</li>
+		<li>Self Join -- selecting data within a table</li>
+		<li>Cross Join</li>
+		<li>Natural Join</li>
+	  </ul>
+<hr>
+
+<h3>28. What is CROSS Join 	- Cartesian Join / Product.</h3>
+	<p>Cross Join also called Wrong Join
+	If you ignore the Join condition | invalid Join Condition
+	All the Rows in the first table will Join with all the Rows with Second Table.</p>
+
+<hr>
+
+<h3>29. How to Avoid Cross Join?</h3>
+	<p>By using Proper Join condition </p>
+
+	<hr>
+
+<h3>30. How to get Unmatched Record?</h3>
+	<p>Full Outer Join Minus Equi Join </p>
+
+<hr>
+
+<h3>31. Sub Query?</h3>
+	<p>Query Within another Query
+	The Inner Query writen inside () - parenthesis
+	Inner Query will get executed first based on that Outer Query will execute.</p>
+	
+
+<h4><u>Types</u></h4>
+	<ul>
+<li>Single Row Subquery</li>
+<li>Multiple Row Sub Query</li>
+<li>Scalar Subquery (SELECT clause)</li>
+<li>Inline View (FROM clause)</li>
+<ul>
+<li>	Multiple Column Subquery</li>
+<li>	Correlated Subquery</li>
+</ul>
+</ul>
+
+<hr>
+
+<h3>32. Single Row Subquery and its Operators?</h3>
+	<p>If a query return exactly one row.
+	Relational Operators : < , > , <=, >=, <></p>
+
+<h4> Who are all getting salary more than Avg salary of the company?</h4>
+
+<pre><code class="language-sql">
+SELECT *
+  FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees); 
+	</code>
+</pre>
+<hr>
+
+<h3>33. Multiple Row Subquery?</h3>
+	<p>If a query return more than one row.
+	Comparison Operators : IN ANY ALL</p>
+
+<h4> Display all department_names which contains employees?</h4>
+
+<pre><code class="language-sql">
+SELECT * 
+  FROM departments
+WHERE department_id IN (SELECT department_id FROM employees)
+</code>
+</pre>
+<hr>
+
+<h3>34. Inline View?</h3>
+	<p>Query written in FROM Clause
+	We are selecting Data from Intermediate Resultset.</p>
+	
+<h4> Display all the departments which contain more no of employees?</h4>
+
+
+<pre><code class="language-sql">
+SELECT X.* 
+  FROM (SELECT department_id, COUNT(*) dcount 
+          FROM employees 
+        GROUP BY department_id) X
+     , (SELECT MAX(COUNT(*)) dmcount 
+          FROM employees 
+        GROUP BY department_id) Y
+WHERE X.dcount = Y.dmcount;
+</code>
+</pre>
+<hr>
+
+<h3>35. Correlated Sub Query or Synchronized Subquery?</h3>
+	<p>Outer Query will execute FIRST
+	based on that inner query will get execute
+	We cant execute Inner Query alone
+	For each row input will be different.</p>
+
+<h4>Display who are all getting salary more than avg salary of their department.</h4>
+<article>
+		
+		<pre><code class="language-sql">
+SELECT e.employee_id
+     , e.first_name
+     , e.hire_date
+     , e.salary
+     , e.department_id
+  FROM employees e
+WHERE e.salary >(SELECT AVG(salary) 
+                  FROM employees 
+                WHERE department_id = e.department_id);
+		</code>
+		</pre>
+	</article>	
+
+<hr>
+
+<h3>36. Types of Statements?</h3>
+
+
+<h4>1. DDL - Data Definition Language (CARDT)</h4>
+<ul>
+	<li>CREATE            </li>
+	<li>ALTER
+		<ul>
+			<li>ADD MODIFY RENAME DROP     -- Column Level</li>
+		</ul>
+	</li>
+	<li>RENAME</li>
+	<li>DROP</li>
+	<li>TRUNCATE</li>
+</ul>
+
+<h4>2. DML - Data Manipulation Language (Data)</h4>
+<ul>
+	<li>INSERT  </li>
+	<li>UPDATE</li>
+	<li>DELETE</li>
+	<li>MERGE   (INSERT+UPDATE)      </li>
+</ul>
+
+<h4>3. TCL - Transaction Control Language</h4>
+<ul>
+	<li>COMMIT</li>
+	<li>ROLLBACK</li>
+	<li>SAVEPOINT</li>
+</ul>
+
+<h4>4. DCL - Data Control Language</h4>
+<ul>
+	<li>GRANT</li>
+	<li>REVOKE</li>
+</ul>
+
+<hr>
+
+
+<h3>37. Data Types in Oracle.</h3>
+<ul>
+<li> CHAR</li>
+<li> VARCHAR</li>
+<li> NUMBER (p, s)	</li>	
+<li> DATE</li>
+<li> TIMESTAMP</li>
+<li> LONG	</li>		 
+<li> CLOB					-- upload files</li>
+<li> BLOB					-- upload images</li>
+<li> RAW</li>
+<li> XML_TYPE</li>
+<li> ROWID</li>
+</ul>
+
+
+<hr>
+
+<h3>38. LONG </h3>
+	 <p>Store 2gb 
+	 Per Table 1 LONG
+	 Cannot use in ORDER BY | GROUP BY
+	 Cannot Copy Long Column.</p>
+	
+<hr>	
+
+<h3>39. Size of VARCHAR</h3>
+	<p>Default : 4000 	--  upto 11g
+	Increase : 32767 --12c,18c,19c</p>
+
+<hr>
+
+<h3>39. CLOB?</h3>
+	<p>Store 4gb of Data.
+	Per Table 1 CLOB
+	Cannot use in ORDER BY | GROUP BY
+	Cannot Copy CLOB Column.</p>
+	 
+		<hr>
+
+<h3>40. BLOB?</h3>
+	<p>image | Video
+	Store 4gb of Data</p>
+
+		<hr>
+		
+<h3>41. Table Design Document?</h3>
+
+	<p>Contains Information about Table name, Column name, Datatypes.	-- length of Table Name is 30 maximum 128 bytes</p>
+
+	<hr>
+
+
+<h3>42. Diff VARCHAR and CHAR</h3>
+
+    <table>
+                   
+                   <thead>
+                       <tr>
+                           <th><center>VARCHAR2</center></th>
+                           <th><center>CHAR</center></th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>1.VARCHAR2 is variable character length 	</td>
+                           <td>CHAR is a Fixed Character Length</td>
+                       </tr>
+                       <tr>
+                           <td>If you fix the size 30 if u ulitized 10 only 10  will be occupied	</td>
+                           <td>if u fix size 30 and you utilized 10 the whole 30 will be occupied</td>
+   
+                       </tr>
+                       <tr>
+                           <td>3. Default size : 4000 extended 32767 bytes		</td>
+                           <td>Default size is 1 extended 2000</td>
+                       </tr>   
+                      
+                   </tbody>
+                
+               </table>
+<p>Whenever we compare VARCHAR2 with CHAR we need to TRIM the CHAR value and then we need to compare with VARCHAR2 to get the actual result.
+Always my manager say to use VARCHAR2 instead of CHAR
+For reporting purpose we can use CHAR bcs we dont want to use padding like LPAD, RPAD if we use VARCHAR2 we need to use padding </p>
+<hr>
+
+<h3>43. Difference between TRUNCATE & DROP & DELETE?</h3>
+
+
+<table>
+                   
+    <thead>
+        <tr>
+            <th><center>TRUNCATE</center></th>
+            <th><center>DROP</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1. DDL Statements</td>
+            <td>DDL Statement</td>
+            <td>DML Statements</td>
+
+        </tr>
+        <tr>
+            <td>2. We Cannot restrict Data</td>
+            <td>We cannot Restrict Data</td>
+            <td>We can restrict Data which we are going to Delete</td>
+
+        </tr>
+        <tr>
+            <td>3. We Cannot use WHERE Clause</td>
+            <td>We cant use WHERE clause</td>
+            <td>We can use WHERE Clause</td>
+            <td></td>
+
+        </tr>   
+            <tr>
+            <td>4. ROLLBACK not Possible</td>
+            <td>Rollback Not Possible</td>
+            <td>We can get the Data (ROLLBACK Possible)</td>
+            <td></td>
+
+        </tr>  
+        
+           <tr>
+            <td>5. Feedback : Table Truncated</td>
+            <td>Table Dropped</td>
+            <td>Feedback : 5 Row(s) Deleted	</td>
+            <td></td>
+
+        </tr>  
+            <tr>
+            <td>6. FAST</td>
+            <td>Fast</td>
+            <td>SLOW-- it will store the deleted data in datafile within tablespace</td>
+            <td></td>
+
+        </tr>  
+        
+    </tbody>
+ 
+</table>
+
+<hr>
+
+<h3>44. Maxmimum Number of Column in Oracle?</h3>
+<p>1000 upto 21c IN 23c it was Extended to 4096 
+  Alter System Set Max_Columns = Extended;	-- 23c</p>  
+    
+<hr>
+
+<h3>45. Diff bt BTITLE & TTILE?</h3>
+<ul>
+<li>
+    TTITLE 
+    <p>    Print Top of Page 
+        Right side Top Corner will print Page NUMBER
+        Left side Top Corner will print Date and TIME</p> 
+</li>
+</ul> 
+
+ <ul>
+<li>BTITLE    <p>Print Bottom of the Page</p></li>
+
+
+</ul>
+
+
+<hr>
+
+<h3>46. What is Transaction?</h3>
+	<p>List of Statements will be executed between 2 commit points.
+        <hr>
+
+<h3>47. What is Constraint?</h3>
+<p>	Enforce Rule on table. 
+	Applying some set of conditions on data or restriction or Validating on data before storing into the table.</p>
+<ul>	
+<li>Data Dictionary</li>
+<li>user_constraints</li>		
+<li>user_cons_columns</li>		
+</ul>
+<br>
+<hr>
+
+<h3>48. How to Create Constrain ?</h3>
+<p>	we can create cosntraint at 2 Levels</p>
+<ul>
+<li>At the Time of Creating Table</li>
+<li>After Table Creation.</li>
+</ul>
+<hr>
+
+
+<h3>48. Types of Constriant?</h3>
+
+<table>                
+    <thead>
+        <tr>
+            <th><center>Constarint</center></th>
+            <th><center>Duplicates</center></th>
+            <th><center>NULL</center></th>
+			<th> <center>i.e</center> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Primary KEY</th>
+            <td> <center>X</center></td>
+            <td><center>X</center></td>
+			<td><center>customer_id, order_id, invoice_id</center></td>
+
+        </tr>
+        <tr>
+           
+            <th>Unique</th>
+            <td><center>X</center></td>
+            <td><center>Yes</center></td>
+			<td><center>email_id, pan</center></td>
+        </tr>	
+		<tr>
+            <th>Foreign Key</th>
+            <td><center>Yes</center></td>
+            <td><center>Yes</center></td>
+			<td><center>department_id</center></td>
+        </tr>
+		<tr>
+            <th>CHECK</th>
+            <td></td>
+ 
+        </tr>
+		<tr>
+            <th>NOT NULL</th>
+            <td>100% in Column Level</td>
+
+        </tr>		
+	
+	</tbody>
+	</table>
+
+
+<hr>
+
+    <h3>50. How many Primary key can Create Per Table?</h3>
+	<p>1 Primary Key per Table.</p>
+
+<hr>
+
+<h3>51. Is it Possible to have more than one Primary Key in a Table?</h3>
+<p>	Yes By using Unique Key and NN 
+	PK -> _uk + _nn</p>
+
+<hr>
+
+<h3>52. We can CREATE Primary Key for Multiple Column</h3>
+	<p>Composite Primary Key</p>
+
+<hr>	
+<h3>53. Table -> 5 Constraints -> DROP?</h3>
+	<p> All the Constraints will also get Droped</p>
+
+<hr>
+
+
+<h3>54. When copy a Table what happen to Constraint?</h3>
+	<p>No constrints will not copy except NOT NULL.</p> 
+
+<hr>
+
+<h3>55. What happen if a Table was Dropped?</h3>
+<p>	All the Data, Constraints will dropped Except View 	bcs View is Out of the table it is a Schema Object.</p>
+
+<hr>
+	
+    <h3>56. Foreign Key Syntax</h3>
+    <p>   ALTER TABLE table_name ADD CONSTRAINS constrint_name FOREIGN KEY for Which Column REFERENCES Which table for Which Column.</p>
+    
+    <hr>
+    
+    <h3>57. If you try to delete a Foreign Key like Department_id 30 what happen the employees in that department?</h3>
+ 
+    DELETE FROM departments WHERE department_id=30;</pre>
+        
+    <p>*	ERROR : integrity constraint (HR.EMP_DEPT_FK) violated - child record found</p>
+
+<hr>
+
+    <h3>58. How to Overcome integrity constraint violated?</h3>
+    <ul>
+    <li>	ON DELETE CASADE</li>
+    <li>	ON DELETE SET NULL</li>
+</ul>
+<br><hr>
+
+<h3>59. Merge Statement?</h3>
+<p>To synchronize the data from a source table to a target table we use the MERGE statement:</p>
+<ul>
+  <li>If NOT MATCHED then INSERT</li>
+  <li>If MATCHED then UPDATE</li>
+</ul>
+
+<br><hr>
+
+<h3>60. Merge Syntax?</h3>
+
+
+MERGE INTO [schema].target_table_name
+USING source_table
+  ON join_condition
+WHEN MATCHED THEN
+  UPDATE  
+	SET col1 = val1
+	[, col2 = val2...]
+   [WHERE conditional_expression]
+   DELETE WHERE conditional_expression
+WHEN NOT MATCHED THEN
+	INSERT(col1, col2, .., coln)
+     VALUES(val1, val2, .., valn)
+	[WHERE conditional_expression];
+</pre>
+
+<hr>
+
+
+<h3>61. Flashback;</h3>
+	<p>Flashback Table test_tb TO BEFORE DROP;</p>
+
+<hr>
+
+<h3>62. Purge?</h3>
+	<p>SQL>PURGE RECYCLEBIN;</p>	
+
+<hr>
+	
+<h3>62. Recyclebin?</h3>
+	
+SELECT * 
+  FROM recyclebin 
+WHERE original_name LIKE '%TEST_TB%';
+</pre>
+
+<hr>
+
+<h3>63. What is Pseudocolumn?</h3>
+<p>	It is not a Column inside the Table but act as a Column.
+We Mostly use in PLSQL</p>
+<hr>
+
+
+<h3>64. What are Pseudocolumns?</h3>
+<ul>
+<li>USER</li>
+<li>UID</li>
+<li>SYDATE</li>
+<li>SYSTIMESTAMP</li>
+<li>ROWNUM			-- generate unique number at run time </li>
+<li>ROWID</li>
+<li>NEXTVAL			-- seq related pseudocolumns</li>
+<li>CURRVAL</li>
+<li>LEVEL</li>
+<li>ORA_ROWSCN</li>
+</ul>
+<br><hr>
+
+<h3>65. What are Analytical Functions?</h3>
+<ul>
+<li>MIN() OVER()</li>
+<li>MAX() OVER()</li>
+<li>SUM() OVER()</li>
+<li>AVG() OVER()</li>
+<li>COUNT() OVER()</li>
+<li>LEAD() OVER()</li>
+<li>LAG() OVER()</li>
+<li>FIRST_VALUE() OVER()</li>
+<li>LAST_VALUE() OVER()</li>
+<li>RANK() OVER()</li>
+<li>DENSE_RANK() OVER()</li>
+<li>LISTAGG()</li>
+<li>ROW_NUMBER() OVER()</li>
+<li>NTH_VALUE() OVER()</li>
+</ul>	
+<br><hr>
+
+<h3>66. Listagg() using? and using DISTINCT in Listagg()?</h3>
+
+<p>	Transforming Data from multiple row to single list of value seperated by delimited 
+Listagg() is 11g  and using DISTINCT in LISTAGG - 19c</p>
+
+<hr>
+
+
+<h3>67. Limitations in LISTAGG()?</h3>
+	<p>4000 charcter Limit</p>
+
+<hr>
+
+<h3>68. Group function vs Analytical Function.</h3>
+
+<table>
+    <tr>
+
+        <th><center>Aggregate Function</center></td>
+        <th><center>Analytical Function</center></td>
+   
+    </tr>
+    <tbody>
+    <tr>
+        <td>1. Return a single summary value.</td>
+        <td>Return the same number of rows as the input.</td>
+
+    </tr>
+    
+    <tr>
+        <td>2. Groups of rows on which they operate through the SQL GROUP BY clause</td>
+        <td> Groups of rows on which they operate through window partition and window frame clauses</td>
+    </tr>
+    
+    <tr>
+        <td>3. Performance wise Slower than Analytical</td>
+        <td> Performance wise Faster</td>
+    </tr>
+    </tbody>
+    </table>
+
+
+<hr>
+
+
+
+<h3>69. Diff bewtween ROW_NUMBER and ROWID?</h3>
+
+<table>
+    <th><Center>ROW_ID</Center></th>
+    <th><center>ROW_NUM</center></th>
+    <th><center>ROW_NUMBER</center></th>
+    <tbody>
+    <tr>
+    <td>1. Row_id is a Pseudocolumn</td>
+    <td>Row_num is a Pseudocolumn</td>
+    <td>Row_number is a Analytical Function</td>
+    </tr>
+    
+    <tr>
+    <td>2. It represent Physical address of Rows</td>
+    <td>Sequence Number allocating during execution</td>
+    <td>assign number to each row according to ordering within the group</td>
+    </tr>
+    
+    <tr>
+    <td>3. ROW_ID is PERMANENT</td>
+    <td>ROW_NUM is Temporary</td>
+    <td>ROW_NUMBER is Temporary </td>
+    </tr>
+    
+    <tr>
+    <td>4. Its is 18 charcter String</td>
+    <td>It is a Number 	</td>
+    <td>It is a Number </td>
+    </tr>
+    
+    <tr>
+    <td>5. It gives address of the ROW</td>
+    <td>It gives count to row</td>
+    <td>It gives Rank to Row</td>
+    </tr>
+    
+    </tbody>
+    </table>
+
+<hr>
+
+<h3>70. What is Sequence?</h3>
+<ul>
+<li>Sequence is used to Generate Unique Numbers</li>
+<li>Moslty used to generate Primary KEY</li>
+<li>One of Schema Object | Sharable OBJECT</li>
+<li>Max Size : 27(99999..)</li>
+</ul>
+</ul>
+<br><hr>
+
+<h3>71. Sequence Syntax?</h3>
+
+CREATE SEQUENCE test_seq
+START WITH 1
+MINVALUE 1
+MAXVALUE 9999999.99(27)
+INCREMENT BY 1
+NOCYCLE
+NOCACHE;
+</pre>
+
+<hr>
+
+
+<h3>72. Alter Sequence Syntax?</h3>
+
+ALTER SEQUENCE test_seq
+MAXVALUE 10000
+NOCAHCE 1000;
+</pre>
+
+<p>	-- we cannot alter sequence START WITH 1 bcs it affect already sequence performance</p>
+
+<h4> How to improve sequence Performance</h4>
+
+       <p>using CACHE we can improve </p>
+    
+    <hr>
+
+<h3>73. How To Generate Unique Number without Sequence?</h3>
+	<p>Using ROWNUM, LEVEL, XMLTABLE, For Loop.</p>
+
+<hr>
+    <h3>74. Identity Column.</h3>
+    <ul>
+    <li>Automatically genererate unique number for each new row is inserted into the table </li>
+    <li>GENRATED ALWAYS AS IDENTITY					-- no need to insert for identity column </li>
+    <li>GENERATED BY DEFAULT AS IDENTITY			-- it takes user value if not it generate </li>
+    <li>GENERATED BY DEFAULT ON NULL AS IDENTITY	-- it takes user value if NULL it generate</li>
+    </ul>
+   <p> --When we Define a Column as Identity Column Oracle automatically Create SEQUENCE and assign as a Default Value for this Particular Column</p>
+    
+ CREATE TABLE test_tb ( id NUMBER GENERATED ALWAYS AS IDENTITY (START WITH 500 INCREMENT BY 1 MAXVALUE 9999 NOCYCLE NOCACHE)
+                   , name VARCHAR2(20));</pre> 
+
+
+<hr>
+
+
+<h3>75. What is View?</h3>
+<ul>
+<li>View is a Virtual Table in Oracle</li>
+<li>fetch data from one or more tables</li>
+<li>View wont contain DATA it get data at run time</li> 
+<li>It is a Schema object </li>
+</ul>
+<br>
+
+<h3> Advantage of Creating VIEW</h3>
+<ul>
+<li>We can Restrict Data Access</li>
+<li>You Can Provide Data What They Want</li>
+<li>We Can represent Data in different form</li>
+<li>We can Make Complex Query to Simple.</li>
+</ul>
+<h3>
+
+<h3>76. How to Create View?</h3>
+ 
+ CREATE VIEW test_vw
+ AS
+ SELECT * FROM test_tb;
+</pre>
+    
+<hr>
+
+<h3>77. Types of View?</h3>
+<ul>
+<li>Simple View : If you select Data From Single Table</li>
+<li>Complex View : If you Select Data from Multiple Table.</li>
+</ul>
+<br><hr>
+
+<h3>78. DML Operations on View?</h3>
+	<ul>
+	<li>Simple View DML  Possible</li> 
+	
+	<li>Complex View also possible but have some restriction </li>
+	</ul>
+<h4>Delete Not Possible</h4>
+<ul>
+<li>DISTINCT</li>
+<li>Group By | Group FUNCTION</li>
+<li>Pseudocolumns</li>
+<li>Column Define Expression : Salary * 12</li>
+</ul>		
+		
+<h4>Insert Not Possible</h4>
+<ul>
+<li>DISTINCT</li>
+<li>Group By | Group Function </li>
+<li>Pseudocolumns</li>
+<li>Column Defined Expression : Salary*12</li>
+</ul>
+<br><hr>
+
+
+<h3>79. View Option?</h3>
+<ul>
+<li>WITH CHECK OPTION</li>
+<li>WITh READ ONLY			-- No DML Operations</li>
+</ul>
+
+CREATE OR REPLACE VIEW test_vw
+AS
+SELECT * FROM test_tb
+WHERE department_id = 50 WITH CHECK OPTION; -- we cannot violate the condition in where clause we mentioned 
+</pre>
+
+<hr>
+
+<h3>80. ORA_ROWSCN?</h3>
+<ul>
+<li>System Change Number (SCN)</li>
+<li>Most Recent Change to the Row</li>
+<li>SCN will change each Time the Row was updated</li>
+<li>Stored at Block LEVEL not at ROW LEVEL.</li>
+<li>It only Store at ROW LEVEL When the Table was Created with ROWDEPENDENCIES enabled.</li>
+<li>Not Supported for flashback.</li>
+</ul>
+<br><hr>
+
+<h3>81. We opened a Session and created a table and inserted values 1,2,3 and  close the session is data will be in that table without giving commit?</h3>
+
+	<p>NO the data will not be there but when we proper exit the session the data will be even without giving commit.</p>
+
+<hr>
+
+<h3>82. What is TABLESPACE</h3>
+	<p>Tablespace is a logical storage unit thats contains one or more database objects like table, index 
+	Each Tablespace contain one or more Phisical Data files that stored in disk </p>
+
+<hr>
+
+<h3>83. DATAFILES</h3>
+	<p>Datafile are Phisical files of the Operating System that Store the Data in Database.
+	Datafile contains Blocks</p>
+
+<hr>
+
+<h3>84. What is Extend</h3>
+	<P>8 Blocks Called as Extend.</P>
+
+<hr>
+
+<h3>85. What is Big TABLESPACE</h3>
+	
+	<p>if 1 TABLESPACE contains 1 Data File is Called as Big Tablespace.</p>
+<hr>
+
+<h3>86. What is Small Tablespace </h3>
+	
+	<p>if 1 TABLESPACE contains Multiple Data File is called Small Tablespace.</p>
+<hr>
+
+<h3>87. Types of tablespace?</h3>
+<UL>
+<li>User TABLESPACE</li>
+<li>Temporary TABLESPACE</li>
+<li>Undo TABLESPACE</li>
+</UL>
+<hr>
+
+<h3>88. Types of User Tablespace</h3>
+<ul>
+<li>USER
+<li>SYSTEM
+<li>SYSAUX
+</ul>
+<br><hr>
+
+<h3>89. Temporary Tablespace </h3>
+	<p>TEMP</p>
+<hr>
+
+<h3>90. Undo tablespace</h3> 
+	
+<p>Uncommited Information 	- Recover
+15 Mins - 9000 seconds 
+after this time expired the data will loss and comes and error --snapshot error.</p>
+
+<hr>
+
+<h3>91. Create USER Syntax.</h3>
+
+
+CREATE USER ganesh
+IDENTIFIED BY 123
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP
+QUOTA 10M ON USERS
+QUOTA 20M ON SYSAUX
+PASSWORD EXPIRE;
+</pre>	
+
+<hr>
+
+<h3>92. Grand Previleges.</h3>
+	
+	<p>GRANT CONNECT, CREATE SESSION, CREATE TABLE TO ENH_DB;</p>
+
+<hr>
+
+<h3>93. Create Table with TABLESPACE</h3>
+
+	<p>CREATE TABLE test_tb (id NUMBER) TABLESPACE SYSAUX;</p>
+
+<hr>
+
+<h3>94. Password Reset.</h3>
+
+
+ALTER USER ganesh
+IDENTIFIED BY 123;
+</pre>
+
+<hr>
+
+<h3>95. Create DIRECTORY</h3>
+	
+	<p>CREATE DIRECTORY ENH_DB AS 'Documents\enh_db';</p>
+
+<hr>
+
+<h3>96. User Account Lock.</h3>
+
+Alter User ganesh
+ACCOUNT LOCK;
+</pre>
+<hr>
+	
+<h3>97. What happen if you drop a user where the user has some tables?</h3>
+
+	<p>Connot Drop the User with Tables. we can drop using CASCADE keyword.
+	DROP USER ganesh CASCADE;</p>
+<hr>
+
+
+<h3>98. Diff DBA_ , Users_,  all_ ?</h3>
+
+<table>
+<tr>
+	<th><center>dba_ </center></th>
+	<th><center>users_</center></th>
+	<th><center>all_</center></th>
+</tr>
+<tbody>
+	<tr>
+		<td>1. DBA 	Level</td>
+		<td>User level access</td>
+		<td>Need Previlegesto access</td>
+	</tr>
+	<tr>
+		<td>2. dba_users</td>
+		<td>user_tables</td>
+		<td>all_objetcs</td>
+	</tr>
+	<tr>
+		<td>3. dba_tablespace</td>
+		<td>user_objects</td>
+		<td>all_directories.</td>
+	</tr>
+</tbody>
+</table>
+
+
+<hr>
+
+<h3>99. List of Data Dictionary Tables?</h3>
+<ul>
+<li>dba_tablespaces</li>
+<li>dba_users			</li>
+<li>user_tables         </li>
+<li>user_constraints    </li>
+<li>user_con_columns    </li>
+<li>user_tab_columns    </li>
+<li>user_views          </li>
+<li>user_sequences      </li>
+<li>all_directories     </li>
+<li>all_objects         </li>
+<li>dict                </li>
+<li>tabs                </li>
+</ul>
+<br><hr>
+
+<h3>100. Source Table & Control File</h3> 
+<ul>
+<li>Source file is .csv file </li>
+<li>Control file is .ctl file </li>
+<li>Fixed File</li>
+</ul>
+<br><hr>
+
+<h3>101. Delimiter Seperated FILE</h3>
+
+<p>usually written within "" and seperated by ,</p>
+
+<hr>
+
+<h3>102. Upstream & Downstream</h3>
+<ul>	
+<li>Upstream - Give Data to Others</li>
+<li>Downstream - Getting the Data from others</li>
+</ul>
+<br><hr>
+
+
+<h3>103. How to Export DATA</h3> 
+<ul>
+<li>SPOOL ( SELECT department_id || ',' || department_name || ',' || location_id FROM departments;)</li>
+<li>PL/SQL (right click & export)</li>
+<li>utl_file (package)</li>
+</ul>   	
+<br><hr>
+
+
+
+<h3>104. SQL Loader</h3>
+
+<p>Used to Load Data from File to Database Table.</p>
+
+
+<h4>Types of Source File</h4> 
+<ul>
+<li>Delimiter Seperated File			-- 10,Ganesh,15000</li>
+
+<li>Fixed File </li>
+</ul>
+
+<h4>Control File</h4>
+
+Load Data 
+infile 'E:\scripts\scripts.csv'
+into table test_tb
+fields terminated by "," optionally enclosed by '"'
+(depart_id, department_name)
+</pre>
+
+<h4>Append</h4>
+
+load data
+infile 'E:\scripts\report.csv'
+into table test_tb
+APPEND
+fields terminated by "," optionally enclosed by '"'
+(department_id, department_name)
+</pre>
+	
+<h4>2 tables</h4>
+
+Load Data 
+infile 'E:\scripts\scripts.csv'
+into table test_tb1
+fields terminated by "," optionally enclosed by '"'
+(depart_id, department_name)
+into table test_tb2
+fields terminated by "," optionally enclosed by '"'
+(depart_id, department_name)
+</pre>
+
+<hr>
+
+<h3>105. Load Data </h3>
+
+sqlldr enh_db/123@XE control = E:\scripts\control.ctl log=dept.log;
+(or)
+sqlldr enh_db@XE/123 control = E:\scripts\control.ctl;
+</pre>
+
+<hr>
+
+<h3>106. What is implicit Analysis</h3>
+	
+<p>Need to do Impact Analysis. Some users may have Previleges to acces the Table if we drop they lose the previleges.</p>
+	
+	<h4>Impact Analysis?</h4>
+
+SELECT * FROM user_dependencies
+WHERE referenced_name = 'EMPLOYEES';
+
+SELECT * FROM all_objects
+WHERE object_name = 'EMP_DETAILS_VIEW';
+</pre>
+
+<hr>
+
+
+
+<h3>107. Where the Rejected Records</h3>
+<p>Rejected Records was stored in Bad file.</p>
+<hr>
+
+<h3>108. What is Discard FILE</h3>
+<p>Rejected of Business Logic Records stored in Discard File.</p>
+<hr>
+
+<h3>109. Where will you get the Source FILE</h3>
+<p>From Onsite Team or Previoud Enhancement team they sent through shared drive they will shared drive link</p>
+<hr>
+
+<h3>110. Have You Load Data through SQL Loader in Your Projects?</h3>
+		
+<p>Yes, 1 time in my experience</p>
+
+<hr>
+
+<h3>111. How will you load Data from Flat File to Database table </h3>
+<p>We have performed on delimiter seperated file</p>
+
+<hr>
+
+<h3>112. How Much Volume of data You Load</h3>
+	
+<p>It depends upon the Project i have loaded 10 lakhs records</p>
+
+<hr>
+
+<h3>113. What is Training Null Cols </h3>
+
+<p>TRAILING NULLCOLS used to treat any missing values at the end of record as NULL.</p>
+<hr>
+		
+<h3>114. Diff Direct path Loading and Conventional Path Loading</h3>
+<p>SQL Loader is an Oracle Utility there are 2 methods to load data from external files to oracle Database</p>
+<ul>
+<li>Direct path loading		 -	bypass SQL layer writes data into the block directly it is faster and efficient</li>
+<li>Conventional path loading -	Uses SQL Insert statement to load data into table it is slower compared to direct path loading</li>
+</ul>
+<br><hr>
+
+<h3>115. Is there any other Method for data Loading.</h3>
+		
+<p>External Table - but it is not efficient method</p>
+<hr>
+
+<h3>116. How much Time Taken For Data Loading</h3>
+
+<p>50k records took 46 secods</p>
+<hr>
+
+<h3>117. How to See the Databse</h3>
+		
+<p>SELECT * FROM v$database;</p>
+<hr>
+
+<h3>118. How to see the version.</h3>
+	
+<p>SELECT * FROM v$version</p>
+<hr>
+
+<h3>119. Where the Data is Stored in a Table.</h3>
+	
+<p>Whenever we create a Table oracle create a segment for the Table and Store the data .</p>
+<hr>
+		
+<h3>120. What is Synonym?</h3>
+
+<p>Synonym is to provide alternate name for database objects like table, view, sequence, procedures, functions.</p>
+<hr>
+	
+<h3>121. Synonym Syntax?</h3>
+
+<p>Create SYNONYM emp FOR employees;</p>
+<hr>
+
+<h3>122. Is it possible to create Synonym for non existing  Table?</h3>
+
+<p>Yes but cant use the synonyn we can use only when the table has been created.</p>
+<hr>
+	
+<h3>123. can we desc Synonym?</h3>
+
+<p>Yes</p>
+<hr>
+	
+<h3>124. If we drop Synonym what happen to Table?</h3>
+
+<p>Only Synonym will Drop, Table will Exist</p>
+<hr>
+
+<h3>125. If we Drop the Table and Created the Table again will Synonym work?</h3>
+
+<p>Yes when the Table dropped the Synonym will not work when the Table again Created the Synony will work.</p>
+<hr>
+		
+<h3>126. SET Operators?</h3>
+<ul>
+<li>UNION</li>
+<li>UNION ALL </li>
+<li>MINUS </li>
+<li>INTERSECT </li>
+</ul>
+<br><hr>
+
+<h3>127. GTT - Global Temporary Table?		-- oracle version 8i</h3>
+	
+	<p>Global Temporary Table is a Database Table that is created and hold the data temporarly for that session or trasaction.
+	to create GTT in 2 types </p>
+<ul>	
+<li>ON COMMIT DELETE ROWS 		-- once commit all data will delete & session wise data</li>
+<li>ON COMMIT PRESERVE ROWS 	-- Once left session data will delete.</li>
+</ul>
+<p>-- table is not deleted		|  Fast Data Retrival
+</p   >
+<hr>
+
+<h3>128. GTT Syntax?</h3>
+
+CREATE GLOBAL TEMPORARY TABLE test_tb (id NUMBER) ON COMMIT DELETE ROWS;</pre>
+	
+	<p>-- Instead of creating table for each time i cant create GTT table and drop so we can use PTT</p>
+<hr>
+
+<h3>129. What is PTT- Private Temporary Table?</h3>
+
+<p>PTT creates Temporary Table once the session left or commit the table will dropped.
+PTT is 18c Feature
+ON COMMIT DROP DEFINITION			-- once commit table will be drop
+ON COMMIT PRESERVE DEFINITION		-- once session left table will be drop</p>
+
+<hr>
+	
+<h3>130. PTT Syntax?</h3>
+	
+<p>before table_name use ORA$PTT_</p>
+CREATE PRIVATE TEMPORARY TABLE ORA$PTT_test_tb (id NUMBER) ON COMMIT DROP DEFINITION;</pre>
+	
+<hr>
+	
+<h3>131. With clause?</h3>
+<ul>
+<li>WITH CLAUSE - Comman Table Expression (CTE)</li>
+<li>Similar to sub query </li>
+<li>Writing sub queries that can be reused in the same query for multiple times.</li>
+<li>To improve performance and simplyfing the complex queries.</li>
+</ul>
+
+  WITH sal_details AS
+( 
+ SELECT department_id, SUM(salary) sum_sal
+   FROM employees
+ GROUP BY department_id
+),
+dept_details AS
+(
+ SELECT department_id, department_name
+   FROM departments
+)
+SELECT s.department_id, d.department_name, s.sum_sal
+  FROM sal_details s, dept_details d
+WHERE s.department_id = d.department_id;
+</pre>
+
+
+<hr>
+
+<h3>132. Muti Table Insert?</h3>
+
+<p>Multi Table Insert statement allow us to insert data into Multiple Tables using Single Insert Statement.</p>
+<ol>
+<li>CONDITIONAL INSERT ALL</li>
+<li>UNCONDITIONAL INSERT ALL</li>
+</ol>	
+<h4>	Types</h4>
+	<ol>
+<li>INSERT All</li>
+<li>INSERT FIRST</li> 
+<li>PIVOTING</li>
+</ol>
+	
+<h4> CONDITIONAL INSERT ALL</h4>
+
+
+INSERT ALL
+     INTO trg1_tb VALUES(id,name)
+     INTO trg2_tb VALUES(id,name)
+     INTO trg3_tb VALUES(id,name)
+SELECT * 
+  FROM source_tb;
+
+</pre>
+ 
+<h4> UNCONDITIONAL INSERT ALL</h4>
+
+
+ INSERT ALL
+WHEN department_id =10 THEN
+ INTO dept10 VALUES (name, department_id)
+WHEN department_id =20 THEN
+ INTO dept20 VALUES (name, department_id)
+WHEN department_id =30 THEN
+ INTO dept30 VALUES (name, department_id)
+SELECT * FROM emp_tb;
+</pre>
+
+<h4>Restrictions</h4>
+
+<p>Multi Table Insert can only Perform on Tables Not in View or Materialized View.
+We can do Multi Table Insert via DB LINK
+Sequence Cannot Use.
+Can use 999 INTO clasue
+Cannot use in Nested Table.</p>
+
+<h4>Advantages</h4>
+<ul>
+<li>Reduce Multiple Lock on Table </li>
+<li>Improve Performance </li>
+</ul>
+<br><hr>
+
+<h3>133. Materialized View? | Snapshot</h3> 
+	
+<p>Materialized view contains Data
+Mview Data is Read Only
+We can Create Index in Materialized View
+Mview Data is not up to Date</p>
+	
+	<h4>to get upto date Data we need to do REFRESH</h4>
+<ol>	
+<li>COMPLETE	- Fetch all the data from the Table</li>
+<li>Fast		- Fetch Only Updated records</li>
+</ol>
+
+<br><hr>
+
+<h3>134. Mview Syntax</h3>
+
+
+CREATE MATERIALIZED VIEW view_name
+BUILD [IMMEDIATE]  | [DEFERRED]			-- mview created and data is fetch and stored immediate | deferred data will fetch on first refresh
+REFRESH [FAST] | [COMPLETE] | [FORCE]
+ON [COMMIT] | [DEMAND]
+AS
+SELECT ..;
+
+CREATE MATERIALIZED VIEW view_name_mvw
+REFRESH FAST | COMPLETE
+NEXT SYSDATE +7
+AS 
+SELECT * FROM table_name;
+</pre>
+<hr>
+
+	
+<h3>135. Mview Log?</h3>
+
+CREATE MATERIALIZED VIEW LOG ON table_name WITH ROWID; -- PRIMARY KEY | ROWID
+</pre>
+<hr>	
+<h3>136. Manual Refresh?</h3>
+EXEC dbms_mview.REFRESH('mview_name','C'); 	-- F</pre>
+	
+<hr>	
+<h3>137. Disadvantages of Mview?</h3>
+	
+<p>Data in Mview is not upto date. It has Last Refresh Data</p>
+<hr>	
+<h3>138. Data is Not upto date Still we use Mview?</h3>
+	
+<p>While fetching Data from another Databse even VIEW will fetch each time from Axisdb.
+    So we Creating MATERIALIZED VIEW the Data  will take a copy from axemp_tb and keep in HDFCdb each time we fetch data it will not fetch from Remote database Axisdb it will fetch in local MATERIALIZED View.
+    While Creating MVW it Takes some memory but performance wise its fast.
+    When we need up-to-date record we need to REFRESH By FAST | COMPLETE.
+    EVEN its Outdated record in MATERIALIZED VIEW but depends on Business need we can REFRESH when we need.
+    Main use of Materialised View is TO Improve Performance.
+    No use for Creating MATERIALIZED View for Local Database or Current databse only we use for REMOTE database.</p>
+    
+<hr>    
+
+<h3>139. Have You CREATED or used  MATERIALIZED View in your project?</h3>	
+		
+<p>I know how to create materialised view and i  not involved in creation but in our project we maintaing some set of Existing MATERIALIZED View
+we use to do REFRESH as per the Client request(manual refresh).</p>
+<hr>
+
+<h3>140. Difference Between View and Materialized View.</h3>
+
+<table>
+<tr>
+	<th><center>VIEW</center></th>
+	<th><center>Materialized VIEW</center></th>
+</td>
+<tbody>
+<tr>
+	<td>1. VIEW does not Contain Data</td>
+	<td>Mview Contains Data</td>
+</tr>
+<tr>
+	<td>2. In View Data is Upto Date</td>
+	<td>In Mview Data is Out Dated</td>
+</tr>
+<tr>
+	<td>3. Index Not Possible</td>
+	<td>Index Possible</td>
+</tr>
+<tr>
+	<td>4. Slow	</td>
+	<td>Fast</td>
+</tr>
+
+</tbody>
+</table>
+
+<hr>
+
+
+<h3>148. What is Index?</h3>
+<ul>
+<li>Index is one of the Performance Tuning Method</li>
+<li>It is used to reduce the run Time of the query </li>
+<li>Index is created by User and Maintaine by oracle</li>
+<li>It is a Schema object</li>
+	</ul>
+<hr>
+
+<h3>149. Types of Index?</h3>
+<ol>
+<li>Unique Index			-- unique Index is created automatically when we create Primary Key
+<li>Non Unique Index
+</ol>
+	
+<h4>	Non Unique Index Types</h4>
+<ol>
+<li>B-Tree INDEX</li>
+<li>Bitmap INDEX</li>
+<li>Function Based INDEX 	-- expressions</li>
+<li>Reverse Key INDEX	</li>
+</ol>	
+	<p> **Composite INDEX - More than One column we create INDEX</p>
+	
+	
+<h4>B-Tree INDEX</h4>
+
+<p>Binary Tree INDEX is the Default Index 
+It is Created in High Cardinality Column (column with Values Distinct)</p>
+	
+Ordered List of Values divided into ranges (like order_id 1..25 | 26..50
+along with rowid it stored in leaf node 
+	
+ i.e order_id
+</pre>	
+	
+<h4>Bitmap INDEX</h4>
+
+<p>Created Low Cardinality Column (column with Duplicate values)</p>
+<hr>
+
+
+
+<h3>150. Data Dictionary Tables?</h3>
+
+SELECT * FROM user_indexes;
+SELECT * FROM user_ind_columns;
+</pre>
+<hr>
+	
+<h3>151. How to Rebuild Index? | in Prodcution</h3>
+
+ALTER INDEX ind2 REBUILD;
+	
+ALTER INDEX ind2 REBUILD ONLINE; 
+</pre>
+<hr>
+
+<h3>152. When to Create Index and When not to Create Index?</h3>
+<table>
+<tr>
+	<th><center>When to Create Index </center></th>
+	<th><center>When Not to Create INDEX</center></th>
+</tr>
+<tbody>
+<tr>
+	<td>1. Table has Huge Volume Data(more than 10 Lakhs recors)</td>
+	<td>Small Table </td>
+</tr>
+<tr>
+	<td>2. When less DML Operations on tables.</td>
+	<td> Frequent DML Operations will affect Index.</td>
+</tr>
+<tr>
+	<td>3. If a Query Return less than 10% of Records.</td>
+	<td>If Query returns more than 10%.</th>
+</tr>
+<tr>
+	<td>4. If we use the column in WHERE clause frequently</td>
+	<td>Not frequently used in WHERE clause</td>
+</tr>
+
+</tbody>
+</table>
+<hr>
+
+
+<h3>153. How to see index in the Table?</h3>
+
+SELECT * FROM user_indexes WHERE table_name ='TEST_TB';
+</pre>
+<hr>
+<h3>154. In which Column has Index?</h3>
+
+SELECT * FROM user_ind_columns WHERE table_name ='TEST_TB';
+</pre>
+<hr>
+<h3>155. How to see the Type of Index?</h3>
+
+SELECT uniqueness FROM user_indexes WHERE table_name ='TEST_TB';  
+	
+SELECT index_name, index_type, table_name, uniqueness, status  FROM user_indexes WHERE table_name ='TEST_TB';
+</pre>
+<hr>
+
+<h3>156. How much Time Taken for Index Creation.</h3>
+
+<p>It Depends on Volume of Data in that Columns  -- 10 lakhs records - 20 to 30 mins
+(while Creating Index the Table is Locked. DML Operations cant perform)</p>
+<hr>
+
+<h3>157. How to Enable | Disable Index?</h3>
+
+	ALTER INDEX ind2 ENABLE;
+	ALTER INDEX ind2 DISABLE;
+</pre>
+<hr>
+
+
+
+
+<h3>158. What is Table PARTITION</h3>
+	
+<p>Table Partition subdivided large Table into small pieces of Tables. 
+When the Table size is more than 2GB we do Table Partition</p>
+
+<h4>-- Where will you see Partitioning.</H4>	
+
+SELECT * FROM user_tab_partitions WHERE table_name ='SALES_TB';
+</pre>
+
+<h4>-- Where will you see size.	</h4>
+
+SELECT segment_name,segment_type,bytes/1024/1024 FROM user_segments
+WHERE segment_name IN ('EMPLOYEES','DEPARTMENTS','LOCATIONS');
+</pre>
+
+<hr>
+
+<h3>159. Advantages of Creating PARTITION</h3>
+<ol>
+<li>Increase Performance</li>
+<li>Increase Availability</li>
+<li>Enable Storage Cost Optimization.</li>
+<li>We can do Backup in Partition wise.</li>
+<li>We can Create Index.</li>
+<li>4 Partition | 3 - Ready Only | 1 - write /read</li>
+</ol>
+<br><hr>
+
+
+
+</pre>
+
+	
+<h3>160. Table Partition Types.</h3>
+<ol>
+
+<li>List Partitioning	-- List of Product category</li>
+<li>Range Partitiong		-- January to March | April to June</li>
+<li>Hash Partitioning	-- h1, h2 --- Oracle will maintain</li>
+</ol>
+
+<br><hr>
+
+
+<h3>161. Table Partition Syntax.</h3>
+
+<h4>List Partitioning</h4>
+
+CREATE TABLE sales_tb
+(
+    sales_id NUMBER
+,   state_code VARCHAR2(20)
+,   amount NUMBER
+,   sale_date date
+)
+PARTITION BY LIST (state_code)
+(
+    PARTITION sales_east VALUES ('AR', 'DL')
+,   PARTITION sales_west VALUES ('GA', 'HR')
+,   PARTITION sales_north VALUES ('JH')
+,   PARTITION sales_south VALUES ('TN','AP','KA')
+,   PARTITION sales_others VALUES (DEFAULT)
+);</pre>
+
+<h4>RANGE Partitioning</h4>
+CREATE TABLE emp 
+( 
+    id NUMBER
+, name VARCHAR2(30)
+, salary NUMBER
+)
+PARTITION BY RANGE (salary)
+(
+    PARTITION low VALUES LESS THAN (10000)
+,   PARTITION medium VALUES LESS THAN (20000)
+,   PARTITION high VALUES LESS THAN (30000)
+,   PARTITION others VALUES LESS THAN (maxvalue)
+);
+</pre>
+
+<h4>HASH PARTITION			-- Internal partitioning | Hash Algorithm</h4>
+
+CREATE TABLE emp 
+( 
+    id NUMBER
+, name VARCHAR2(30)
+, department_id NUMBER
+)
+PARTITION BY HASH (department_id) PARTITIONS 6;
+</pre>
+
+<hr>
+
+
+
+
+<h3>162. What is Exchange Partition?</h3>
+
+<p>Exchange Partition swaps an Existing Table with a Partition.</p>
+
+<hr>
+
+<h3>163. When to Partition a Table?</h3>
+<ul>
+<li>Table size should be Greater than 2GB.</li>
+<li>We cannot Partition a Table with LONG and RAW Datatypes.</li>
+<li>We can export | import each partition by mention the partition name with Table name.</li>
+<li>Index Creation Possible.</li>
+<li>We can do Partition on Existing Table.</li>
+</ul>
+<br><hr>
+
+<h3>164. What is Cluster?</h3>
+
+<p>Cluster is a Schema Object that Contains data from one or more Tables. 
+Oracle Stores togeather all the rows from the Table that share the same Cluster Key.
+When 2 tables freuqently involved in Join Operations it requires some IO operations the data in 2 different memeory location it switch from one memory location to another memory location  it reduce the performance
+Better to Cluster the Tables. the 2 tables data stored in single memory location and increase the performance</p>
+
+<h4>To Cluster the Tables we need to do </h4>
+
+<ol>
+<li>Create Cluster</li>
+<li>Create Index on CLUSTER</li>
+<li>Create Tables</li>
+</ol>
+
+<br><hr>
+
+<h3>165. Data Dictionary for Cluster?</h3>
+
+
+SELECT * FROM user_clusters;
+SELECT * FROM all_clusters;
+</pre>
+
+<hr>
+
+
+<h3>166. Hints?</h3>					
+
+<p>We can Provide instruction to the optimized to choose a certain execution plan</p>
+
+<li>INDEX_ASC</li>
+<li>INDEX_DESC</li>
+<li>INDEX</li>
+<li>NO_INDEX</li>
+<li>ALL_ROWS</li>
+<li>FIRST_ROWS</li>
+<li>APPEND</li>
+<li>PARALLEL</li>
+<li>NOCOPY</li>
+
+<br><hr>
+
+
+<h3>167. Nocopy hints?</h3>
+
+<p>No_Copy hint allows plsql compiler to Pass IN and Out Parameters by reference rather than by Value.</p>
+
+<ol>
+<li>Pass By Values (default)</li>
+<li>Pass By Reference using no copy.</li>
+</ol>
+
+<br><hr>
+
+<h3>168. Invisible Column?</h3>
+
+<p>Oracle 12c allows a coulmn to be invisible. 
+Column does not appear in the table or SELECT * FROM query unless explictly referenced by name</p>
+	
+<h4>Advantages</h4>
+<ol>
+<li>Adding Invisible Column does not affect existing SELECT * Query</li>
+<li>Hiding Sensitive data from user who do not need to see</li>
+<li>Creating Virtual Columns that are Invisible by default.</li>
+</ol>
+
+<br><hr>
+
+
+<h3>169. Virtual Column?</h3>
+
+<p>Vitual Column is a Derived Column in the Table it retrieve the Data from Other Columns.
+It does not store Data Physically, Instead it retrieve the data at Run Time.</p>
+	
+CREATE TABLE test_tb
+(
+    id NUMBER
+,   name VARCHAR2(30)
+,   salary NUMBER
+,   annual_salary AS (salary*12)
+);
+</pre>
+
+
+<h4> Creating Index on Virtual Column</h4>
+
+CREATE INDEX test_ind ON test_tb (annual_salary);
+
+SELECT * FROM user_ind_expressions;		-- Column_Expression : salary*12
+</pre>
+
+<p> We cannot insert values to Virtual Columns 
+Adding Command to Virtual Column</p>
+
+COMMENT ON COLUMN test_tb.annual_salary is 'Annual Salary for 1 year only';
+
+SELECT * FROM user_col_comments WHERE table_name = 'TEST_TB';
+</pre>
+
+<br>
+<hr><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </article>
+
+            </div>
+  
+  <div class="lesson-navigation-buttons">
+       <a href="#" class="btn btn-outline"><i class="fas fa-chevron-left"></i> Previous Lesson</a>
+         <a href="#" class="btn btn-outline">Next Lesson <i class="fas fa-chevron-right"></i></a>
+   </div>
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>
