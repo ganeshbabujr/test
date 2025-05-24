@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blue</title>
+    <title>Interview</title>
+     <link rel="icon" href="../../assets/img/icon.png" type="image/svg+xml">
     <link rel="stylesheet" href="../../assets/css/page_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +43,7 @@
     <section class="topic-content">
         <div class="container">
             <div class="topic-header">
-                <h1>Sample Topic</h1>
+                <h1>Blue Yonder Interview Questions</h1>
                 <div class="topic-meta">
                     <span class="difficulty-badge advanced">ADVANCED</span>
                     <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
@@ -317,8 +318,6 @@ So what kind of of the action you want you can take it here to fix the problem.<
 
 </p>
 
-
-
 <hr>
 
 
@@ -326,6 +325,41 @@ So what kind of of the action you want you can take it here to fix the problem.<
 
 
 
+<h3>32. Single Row Subquery and its Operators?</h3>
+     <p>If a query return exactly one row.
+     Relational Operators : < , > , <=, >=, <></p>
+ 
+ <h4> Who are all getting salary more than Avg salary of the company?</h4>
+ <pre><code class="language-sql">
+SELECT *
+   FROM employees 
+ WHERE salary > (SELECT AVG(salary) FROM employees); </code></pre>
+ 
+ <hr>
+
+ <h3> 20. Difference Between Substring and Instring</h3>
+ 
+             <table>
+                 
+                 <thead>
+                     <tr>
+                         <th><center>SUBSTR</center></th>
+                         <th><center>INSTR</center></th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>1.Used to get part of the String	</td>
+                         <td>Used to get the position of the particular character.</td>
+                     </tr>
+                     <tr>
+                         <td>2. It has 3 argumnets: Input String, Starting Poisition, No of Characters to be print	</td>
+                         <td>It hasd 4 Arguments Input string, Character to be search, starting position, no of occurance</td>
+ 
+                     </tr>
+                    
+                 </tbody>
+             </table>
 
 
 
@@ -339,19 +373,25 @@ So what kind of of the action you want you can take it here to fix the problem.<
 
 
 
-
-
-
-
-
-                </article>
+               </article>
 
             </div>
-  
-  <div class="lesson-navigation-buttons">
-       <a href="#" class="btn btn-outline"><i class="fas fa-chevron-left"></i> Previous Lesson</a>
-         <a href="#" class="btn btn-outline">Next Lesson <i class="fas fa-chevron-right"></i></a>
-   </div>
+
+            
+
+
+          <div class="pagination">
+             
+                <a href="../index.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> HOME </i>
+                </button>
+                <a href="../pages/plsql_topics.html" class="btn btn-outline" id="nextPage"> PL/SQL <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+
+
+
+
+
      </div>
 
     </section>
