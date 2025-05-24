@@ -80,7 +80,7 @@ h4 {
 p {
     margin: 10px 0;
     padding: 5px;
-    padding-left: 15px;
+    padding-left: 30px;
     text-align: justify;
     white-space: pre-line;
     display: block;
@@ -1808,6 +1808,10 @@ footer {
 
     body.menu-open {
         overflow: hidden;
+    }
+
+    p {
+        padding-left: 10px; /* Reduced padding for mobile */
     }
 
 
