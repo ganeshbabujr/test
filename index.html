@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesh</title>
+    <link rel="icon" href="./assets/img/icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#" style="text-decoration: none; color: inherit;">
+                    <i class="fas fa-database"></i>
+                    <span>SQL<span class="accent"> Master</span></span>
+                </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="./pages/sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="./pages/plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="./pages/account.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+
+               <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="particles-js"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-aos="fade-up">Master <span class="gradient-text">SQL</span> & <span class="gradient-text">PL/SQL</span></h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-delay="100">The modern way to learn database programming with interactive exercises and real-world scenarios</p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#SQL" class="btn btn-primary btn-icon">
+                        <i class="fas fa-rocket"></i> Start Learning
+                    </a>
+                    <a href="https://www.programiz.com/sql/online-compiler" class="btn btn-secondary btn-icon">
+                        <i class="fas fa-terminal"></i> Practice Now
+                    </a>
+                </div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">Lessons</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Exercises</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-buttons">
+                            <span class="red"></span>
+                            <span class="yellow"></span>
+                            <span class="green"></span>
+                        </div>
+                        <div class="window-title">query.sql</div>
+                    </div>
+                    <div class="window-content">
+                        <pre><code class="language-sql">SELECT employees.name, 
+       departments.dept_name,
+       COUNT(projects.id) AS project_count
+FROM employees
+JOIN departments 
+  ON employees.dept_id = departments.id
+LEFT JOIN projects 
+  ON employees.id = projects.lead_id
+WHERE employees.hire_date > '2020-01-01'
+GROUP BY employees.name, 
+         departments.dept_name
+HAVING COUNT(projects.id) > 2
+ORDER BY project_count DESC;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-up">Why Learn With <span class="gradient-text">SQLMaster</span></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Our platform offers the most comprehensive and modern approach to database learning</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Interactive Coding</h3>
+                    <p>Write and execute real SQL queries directly in your browser with our built-in IDE.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Real Projects</h3>
+                    <p>Work on practical database projects that simulate real-world scenarios.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your learning journey with detailed analytics and achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SQL Section -->
+    <section class="topics-section" id="SQL">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-up">Master <span class="gradient-text">SQL</span> Concepts</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Essential Oracle SQL topics you need to know</p>
+            </div>
+            <div class="topics-grid">
+                <!-- Basic SQL -->
+                <a href="./pages/sql/1.Introduction.html" class="topic-card" data-aos="fade-up">
+                    <div class="card-badge beginner">Beginner</div>
+                    <div class="topic-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Basic SQL</h3>
+                        <p>Master SELECT statements, WHERE clauses, and sorting with ORDER BY.</p>
+                        <div class="topic-meta">
+                            <span class="lessons"><i class="fas fa-book-open"></i> 12 Lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 15m</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Joins -->
+                <a href="./pages/sql/6.Joins.html" class="topic-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card-badge">Intermediate</div>
+                    <div class="topic-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Joins</h3>
+                        <p>Understand INNER, LEFT, RIGHT, and FULL joins to combine data from multiple tables.</p>
+                        <div class="topic-meta">
+                            <span class="lessons"><i class="fas fa-book-open"></i> 8 Lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 45m</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Aggregation -->
+                <a href="./pages/sql/4.Functions.html" class="topic-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-badge">Intermediate</div>
+                    <div class="topic-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Aggregation</h3>
+                        <p>Learn GROUP BY, HAVING, and aggregate functions like SUM, AVG, COUNT.</p>
+                        <div class="topic-meta">
+                            <span class="lessons"><i class="fas fa-book-open"></i> 10 Lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="section-footer" data-aos="fade-up">
+                <a href="./pages/sql_topics.html" class="btn btn-outline">
+                    <i class="fas fa-list"></i> View All SQL Topics
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <!-- PL/SQL Section -->
+    <section class="topics-section dark" id="PLSQL">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-up">Advanced <span class="gradient-text">PL/SQL</span> Programming</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Key PL/SQL concepts for database development</p>
+            </div>
+            <div class="topics-grid">
+                <!-- Blocks -->
+                <a href="./pages/plsql/sample - Copy.html" class="topic-card" data-aos="fade-up">
+                    <div class="card-badge">Beginner</div>
+                    <div class="topic-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="topic-content">
+                        <h3>PL/SQL Blocks</h3>
+                        <p>Understand the structure of PL/SQL blocks with DECLARE, BEGIN, EXCEPTION sections.</p>
+                        <div class="topic-meta">
+                            <span class="lessons"><i class="fas fa-book-open"></i> 6 Lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 15m</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Procedures -->
+                <a href="./pages/plsql/sample - Copy.html" class="topic-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card-badge">Intermediate</div>
+                    <div class="topic-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Procedures</h3>
+                        <p>Create and manage stored procedures for reusable database operations.</p>
+                        <div class="topic-meta">
+                            <span class="lessons"><i class="fas fa-book-open"></i> 9 Lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2h 10m</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Functions -->
+                <a href="./pages/plsql/sample - Copy.html" class="topic-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-badge">Intermediate</div>
+                    <div class="topic-icon">
+                        <i class="fa-solid fa-square-root-variable"></i>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Functions</h3>
+                        <p>Build functions that return values and can be used in SQL statements.</p>
+                        <div class="topic-meta">
+                            <span class="lessons"><i class="fas fa-book-open"></i> 7 Lessons</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 1h 45m</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="section-footer" data-aos="fade-up">
+                <a href="./pages/plsql_topics.html" class="btn btn-outline">
+                    <i class="fas fa-list"></i> View All PL/SQL Topics
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials --><!--
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-up">What Our <span class="gradient-text">Students</span> Say</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Join thousands of learners who transformed their careers with SQLMaster</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>SQLMaster helped me go from zero to database hero in just 3 months. The interactive exercises were game-changing for my learning.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Database Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>I aced my Oracle certification thanks to the comprehensive PL/SQL content. The real-world examples made complex concepts click.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Senior DBA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>The interview prep section was invaluable. I landed my dream job at a FAANG company after completing the advanced optimization course.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <p>Data Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Master PL/SQL Development?</h2>
+                <p>Join thousands of students accelerating their careers with SQLMaster</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large btn-icon">
+                        <i class="fas fa-user-plus"></i> Sign Up Free
+                    </a>
+                    <a href="#" class="btn btn-outline btn-large btn-icon">
+                        <i class="fas fa-play-circle"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-database"></i>
+                        <span>SQL<span class="accent"> Master</span></span>
+                    </div>
+                    <p>The modern platform for mastering SQL and PL/SQL development with interactive courses and real-world projects.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Preparation</h3>
+                    <ul>
+                        <li><a href="./pages/sql/sql.html">SQL Interview</a></li>
+                        <li><a href="./pages/plsql/8.plsql.html">PL/SQL Interview</a></li>   
+                        <li><a href="./pages/plsql/7.Performance.html">Performance Tuning</a></li>
+                        <li><a href="#">Database Design</a></li>
+                        <li><a href="#">Oracle Certification</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.programiz.com/sql/online-compiler/">Oracle Live</a></li>
+                        <li><a href="#">Cheat Sheets</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Webinars</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="./pages/others/Ganesh.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SQL Master. All rights reserved.</p>
+                <p>GANESH BABU J R</p>
+                <div class="footer-links">
+                    <a href="mailto:jr.ganesh66@gmail.com"><i class="fas fa-envelope"></i> jr.ganesh66@gmail.com</a>
+                    <a href="tel:+918667799658"><i class="fas fa-phone"></i> +91 8667799658</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
