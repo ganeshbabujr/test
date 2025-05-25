@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview</title>
+     <link rel="icon" href="../../assets/img/icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html" class="logo-link">
+                        <i class="fas fa-database"></i>
+                        <div class="logo-text">SQL<span> Master</span></div>
+                     </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>Blue Yonder Interview Questions</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge advanced">ADVANCED</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+<h3>1. Do you have knowledge on any  Linux as well?</h3>
+
+
+Unix shell scripting
+
+
+
+<h3>2. So if I ask you to rate yourself out of five in three technology, how much will you rate it?</h3>
+<p>
+SQL   : 4.5
+PLSQL : 4
+Unix  : 4</p>
+
+
+
+
+<h3>3. basically you are working you are monitoring some jobs on your day-to-day activity like what is your current job role?</h3>
+
+Currently am working Developer and L2 Support. Moreover with L2 support.
+
+
+
+<h3> 4. What are the different types of Hints used in you Project?</h3>
+<p>
+We can Provide instruction to the optimizer to choose a certain execution plan
+Hints are comments embedded within the SQL statement that provide instructions to the Oracle optimizer. 
+While hints can be powerful tools for optimizing query performance
+
+INDEX 
+PARALLEL
+APPEND 
+NOCOPY
+Use Hash
+USe NL
+
+ Nocopy hints?
+
+	No_Copy hint allows plsql compiler to Pass IN and Out Parameters by reference rather than by Value.
+
+	1. Pass By Values (default)
+	2. Pass By Reference using no copy.
+</p>	
+
+
+<h3>5. What is Parallel Hint and how it improve the performance?</h3>
+<p>
+Parallel hint instruct the optimizer to use multiple server processes to execute SQL statements.
+Prallel hint divide large task into smaller and processed multiple cpu threads to process at once instead of using single server process
+This can improve the performance while processing large volume of data
+to reduce the processing time and loading data or creating index
+
+1.Splits large operations 
+
+Full Table Scan
+Index Range Scan
+Table Joins
+Loading Data
+
+2. Utilizing Multiple CPU Cores
+
+3. Reducing processing time
+
+
+SELECT /*+ PARALLEL (table_alias [degree]) */ column1, column2
+FROM table_name table_alias
+WHERE condition;
+
+INSERT /*+ PARALLEL (table_name [degree]) */ INTO table_name ... SELECT ... ;
+
+CREATE TABLE AS SELECT /*+ PARALLEL (table_alias [degree]) */ ... ;
+
+CREATE INDEX /*+ PARALLEL (table_name [degree]) */ index_name ON table_name (column_name);
+
+
+
+-- degree we use like 4,8,16 we can use maximum based on Orace CPU 
+
+</p>
+
+<h3>INDEX Hints</h3>
+<p>
+we instruct otimiser to use specific index instead of using Full table scan.
+
+SELECT /*+ INDEX(table_alias index_name) */ columns
+FROM table_name table_alias
+WHERE conditions;
+</p>
+
+<h3>Append Hints</h3>
+
+APPEND hint is used with the INSERT statement to enable direct-path insert, 
+which allows Oracle to bypass the buffer cache and write data directly to datafiles.
+
+INSERT /*+ APPEND */ INTO target_table
+SELECT * FROM source_table;
+
+
+<h3>No copy Hints</h3>
+<p>
+NOCOPY hint is used in PL/SQL procedures/functions to optimize the performance of IN OUT and OUT parameters.
+
+By default, Oracle uses pass-by-value for these parameters, it creates a temporary copy of the variable, 
+and the copy is written back after the subprogram finishes.
+
+Using NOCOPY, Oracle use pass-by-reference, for large data like collections, records, or LOBs.
+
+PROCEDURE my_proc(p_data IN OUT NOCOPY my_table%ROWTYPE);
+</p>
+
+
+<h3>USE_HASH Hint</h3>
+<p>
+Forces Oracle to use a Hash Join between two tables
+
+SELECT /*+ USE_HASH(t2) */ ...
+FROM table1 t1
+JOIN table2 t2 ON t1.id = t2.id;
+
+we use USE hash hints When joining large tables.
+</p>
+
+<h3>USE_NL Hint</h3>
+<p>
+Forces Oracle to use a Nested Loop Join between two tables
+
+SELECT /*+ USE_NL(t2) */ ...
+FROM table1 t1
+JOIN table2 t2 ON t1.id = t2.id;
+
+When one table is small
+When indexes are available on the join column.
+</p>
+
+
+<h3>USE_MERG</h3>
+<p>
+USE_MERGE hint instructs Oracle to use a Merge Join to join two or more tables.
+
+SELECT /*+ USE_MERGE(table_alias) */ columns
+FROM table1 t1
+JOIN table2 t2 ON t1.col = t2.col;
+
+
+When joining large datasets both tables having large data 
+</p>
+
+
+<h3>Advantages of Trigegrs?</h3>
+<p>
+Trigger is a PL/SQL Sub Program which is Associated with Table, Schema and Database.
+It is a Schema Object 
+We cant Execute Trigger, It fires implicitly whenever the Event Take Place.
+It is High Level Constraint 
+
+Types:
+------
+1. Statement Level Trigger 
+2. Row Level Trigger 
+
+Trigger Event
+-------------
+	INSERT
+	UPDATE
+	DELETE
+
+Trigger Timing 
+--------------
+	BEFORE
+	AFTER
+	INSTEAD OF
+	
+
+Statement Level Trigger 
+-----------------------
+	Default Trigger 
+	It Fires for Each Event 
+	It Fires Even No rows are Affected
+
+Row Level Trigger 
+-----------------
+	It Fires for Each Row 
+	We can use reference Value like :new and :old
+	It wont Fire if No rows are Affected
+
+</p>
+
+
+
+
+<h3>6. have you ever worked on the DML error loggin.</h3>
+<p>
+
+DML Error Logging allows you to capture errors that occur during DML operation s like INSERT, UPDATE,  DELETE operations 
+without stopping the entire operation.
+we have a seperate error logging table to capture those error like contraints violation.
+This is especially useful in bulk data load operation
+
+
+based on our requirement we can use 
+
+REJECT LIMIT 5/10
+We can use Limit 5/10 to capture those bad data for review and correct the data and process dml  
+
+or if we use unlimited only if we need to review the entire bad data
+
+REJECT LIMIT UNLIMITED 
+we use REJECT LIMIT UNLIMITED to ensure all valid rows are processed, and the errors are logged into an error table for review. 
+but this will use some resources
+
+</p>
+
+
+<h3>7. Difference Between Unique Index and Unique Key.</h3>
+<p>
+Unique Key Constraint enforce uniqueness in columns without deplicate values exists excpet NULL
+if we create a priamry key or unique key oracle creates unique index automatically  
+</p>
+
+
+
+<h3>8. DML error logging will works with MERGE statement also?</h3>
+
+Yes we can use error logging in merge statement but we need to mention LOG ERRORS INTO <error_table>
+
+
+
+<h3>9. Advatages of Control-M?</h3>
+<p>
+Control M used to schedule, monitor, and manage batch jobs from a single interface.
+
+we can use any platform like Windows, UNIX, Linux and cloud
+</p>    
+
+
+<h3>10 . one control and job is there. Okay. Ideally it should get complete within 5 minutes 
+but today it's setting for more than 30 minutes. 
+What will be your approach to fix it? 
+Just to clarify there is no code change happened. 
+This code was running from last 6 month as usual and it was getting completed within 5 minute 
+but now it's running for more than 30 minute and now you have to take a action. 
+So what kind of of the action you want you can take it here to fix the problem.</h3>
+
+
+<p>
+1. Initially i check if there is any parallel jobs is running
+2. If there is any activity going on or not like ongoing deployments, patching.
+3. Any blocking
+	SELECT blocking_session, sid, serial# FROM v$session WHERE blocking_session IS NOT NULL;
+
+4. if it is Stats issue i will check the table count and stats count if table count and stats count mismatch we gather stats
+	all_table_stats
+	
+	Table count < Stats Count = Need to gather stats	(Table count 4000 Stats count 2000)
+	Table count >= stats count = No need to gather stats 
+
+5. check if there is any old plan sql id need to check with dba team
+6. Finally check with performance team
+
+</p>
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </article>
+
+  </div>
+
+            
+
+
+          <div class="pagination">
+             
+                <a href="../home.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> HOME </i>
+                </button>
+                <a href="#" class="btn btn-outline" id="nextPage"> PL/SQL <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+
+
+
+
+
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Restriction</title>
+     <link rel="icon" href="../../assets/img/icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html" class="logo-link">
+                        <i class="fas fa-database"></i>
+                        <div class="logo-text">SQL<span> Master</span></div>
+                     </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>Data Restriction</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge beginner">beginner</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 1 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+<h4>Restriction and Sorting</h4>
+
+<p>10 100 1000 for Number we donot want to use literals like ''.</p>
+
+<p>for using chanracters 'Ganesh' 'Ganesh_Babu' '26-JUN-94' we need to use characters and date.</p>
+
+<h4>WHERE Class</h4>
+
+<pre><code class="language-sql">WHERE department_id = 10;
+WHERE first_name = 'Ganesh'
+WHERE hire_date = '21-JAN-95'
+</code></pre>
+
+<h4>Examples</h4>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE department_id = 90;
+
+SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE salary > 15000;
+</code></pre>
+
+<p>we can use relational operations like:</p>
+<p>>= , greater than equal</p>
+<p><= , lessthan equal</p>
+<p><> , != , ^= , not equal to</p>
+
+<h4>Date Sensitive</h4>
+
+<pre><code class="language-sql">WHERE hire_date = '13-JAN-93'
+
+SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE hire_date = '13-JAN-93';
+</code></pre>
+
+<p><strong>Note:</strong> Date we need to use '' and if we change the format will not work like 13-01-93.</p>
+
+<h4>Case Sensitive</h4>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE first_name = 'Steven';
+
+SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE first_name = 'steven';
+</code></pre>
+
+<p><strong>Result:</strong> no data found</p>
+
+<h4>Oracle Operators:</h4>
+<p>IN | [NOT] IN</p>
+<p>BETWEEN....AND... | [NOT] BETWEEN....AND...</p>
+<p>LIKE | [NOT] LIKE</p>
+<p>IS NULL | IS [NOT] NULL</p>
+
+<h4>Logical Operators:</h4>
+<p>AND</p>
+<p>OR</p>
+<p>NOT</p>
+
+<h4>1. IN</h4>
+<p>--if we want multiple data to pick</p>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE department_id IN(10,20);
+
+SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE first_name IN ('Steven', 'Lex', 'Michael', 'Ganesh');
+</code></pre>
+
+<p><strong>Note:</strong> We see search unknown name there will no error like Ganesh it will return the remaining names in table.</p>
+<p>-- If the Data not in the Table is Not Error.</p>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE first_name IN ('Steven', 'Lex', 'Michael', 'NULL');
+</code></pre>
+
+<p><strong>Note:</strong> if we search NULL in IN it doesnot process and fetch that NULL data for example in database there is employee details given as NULL and we search the data using IN. IN doesnot process the data.</p>
+
+<pre><code class="language-sql">SELECT * FROM employees
+WHERE department_id IN (10, 60, 90, NULL);
+--In IN does not process the NULL.
+</code></pre>
+
+<h4>Interview Questions:</h4>
+<p>1. If the data is not in the table is not an error its just return the other data like Steven, Lex, Michael.</p>
+<p>2. IF we search NULL in the database will not return the data.</p>
+
+<h4>3. [NOT] IN</h4>
+<p>its Just opposite to IN.</p>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE department_id NOT IN(40,70,50,90,60,30,80,100);
+</code></pre>
+
+<p><strong>Note:</strong> Its just exclude the data where we use [NOT] IN</p>
+
+<h4>BETWEEN AND</h4>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE salary BETWEEN 6000 AND 7000;
+
+SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE hire_date BETWEEN '01-JAN-94' AND '31-DEC-94';
+</code></pre>
+
+<h4>Interview Questions.</h4>
+<p>-- Who are all Joined in 94.</p>
+
+<pre><code class="language-sql">-- Wrong Answer -> WHERE hire_date ='94'; its completely wrong
+
+SELECT * FROM employees
+WHERE hire_date BETWEEN '01-JAN-94' AND '31-DEC-94';
+
+SELECT * FROM employees
+WHERE TO_CHAR(hire_date,'YYYY') = '1994';
+
+SELECT * FROM employees
+WHERE hire_date LIKE '%94';
+
+SELECT * FROM employees
+WHERE SUBSTR(hire_date,-2,2) = '94'
+</code></pre>
+
+<p><strong>Note:</strong></p>
+<p>There is another Possiblity is:</p>
+<pre><code class="language-sql">WHERE grd BETWEEN 'C' AND 'F';
+</code></pre>
+
+<p>grd -> Grade is a Column in school db table.</p>
+<p>C, F -> Grades.</p>
+
+<p>for alphabetic order also Between AND work</p>
+
+<pre><code class="language-sql">CREATE TABLE stu_tb ( id NUMBER, name VARCHAR2(30), grade CHAR);
+
+INSERT INTO stu_tb VALUES(1,'Ganesh','A');
+INSERT INTO stu_tb VALUES(2,'JR','B');
+INSERT INTO stu_tb VALUES(3,'Babu','C');
+INSERT INTO stu_tb VALUES(4,'Jai','D');
+INSERT INTO stu_tb VALUES(5,'Madhan','F');
+INSERT INTO stu_tb VALUES(6,'Karthick','C');
+
+SELECT * FROM stu_tb
+WHERE grade BETWEEN 'C' AND 'F';
+</code></pre>
+
+<h4>[NOT] BETWEEN....AND...</h4>
+
+<pre><code class="language-sql">SELECT employee_id, first_name, hire_date, salary, department_id FROM employees
+WHERE salary NOT BETWEEN '6000' AND '7000';
+</code></pre>
+
+<p><strong>Note:</strong> Exclude those data 6000 and 7000.</p>
+
+<h4>LIKE - Pattern Matching / Wildcard Search</h4>
+<p>we use when we know partial data</p>
+
+<p>% : Something / Nothing</p>
+<p>_ : One Character</p>
+
+<pre><code class="language-sql">SELECT first_name FROM employees WHERE first_name LIKE '';
+SELECT first_name FROM employees WHERE first_name LIKE 'S%';
+SELECT first_name FROM employees WHERE first_name LIKE '%n';
+SELECT first_name FROM employees WHERE first_name LIKE 'S%n';
+SELECT first_name FROM employees WHERE first_name LIKE 'Steven%';
+SELECT first_name FROM employees WHERE first_name LIKE '%man%';
+SELECT first_name FROM employees WHERE first_name LIKE '_t%';
+SELECT first_name FROM employees WHERE first_name LIKE '___v%';
+SELECT first_name FROM employees WHERE first_name LIKE '_t_v%';
+SELECT first_name FROM employees WHERE first_name LIKE '_____';
+</code></pre>
+
+<h4>Interview Question:</h4>
+<p>Which Operator is used for Pattern Matching or Wildcard Search? Ans: LIKE</p>
+
+<h4>Matching Examples:</h4>
+<pre><code class="language-sql">SELECT first_name FROM employees
+WHERE first_name LIKE 'A%';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE 'S%n';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE 'St%n';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE '%man%';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE '_t%';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE '___t%';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE '_t_v%';
+
+SELECT first_name FROM employees
+WHERE first_name LIKE '_____';
+</code></pre>
+
+<h4>IMPLEMENTATION</h4>
+<p>Tips: To find the TABLES</p>
+
+<pre><code class="language-sql">SELECT * FROM User_tables;
+
+SELECT * FROM user_tables 
+WHERE table_name LIKE 'DEP%';
+
+SELECT * FROM user_tables WHERE table_name LIKE 'STU%';
+
+SELECT * FROM students_tb WHERE email = 'ram@gmail.com';
+SELECT * FROM students_tb WHERE email LIKE '__e%';
+SELECT * FROM students_tb WHERE email LIKE '______/_%' ESCAPE '/';
+SELECT * FROM students_tb WHERE email LIKE '______$_%' ESCAPE '$';
+
+SELECT SUBSTR(mail,1,INSTR(mail,'@')-1) FROM test_tb;
+SELECT SUBSTR(mail,INSTR(mail,'@')+1) FROM test_tb;
+</code></pre>
+
+<p><strong>Note:</strong> we want mail which is 7th charcter is _ but we dont know the other charcters if we use the _______ even 7th chacter also is confider as unknow so we use any special charcter before the known charcter and use escape special charcter.</p>
+
+<h4>Assignment</h4>
+<p>If Students got marks:</p>
+90
+87%
+8
+100%</p>
+
+<p>these data was there in database we need to find the % was enter along with marks</p>
+
+<pre><code class="language-sql">WHERE marks_tb LIKE '%/%' ESCAPE '/';
+</code></pre>
+
+<p>we used % for unknown marks and with percentage so both % symbols the system assign both are unknown so we use special charcter / and then ESCAPE special Character.</p>
+
+<h4>IS [NOT] NULL</h4>
+<p>-- '' | NULL (To insert NULL Values)</p>
+
+<p>Wrong Commands for fetching NULL records.</p>
+
+<pre><code class="language-sql">WHERE department_id = NULL;
+WHERE department_id = '';           
+WHERE department_id = ' ';
+WHERE department_id = 'NULL';
+</code></pre>
+
+<p><strong>Note:</strong> there is a space ' ' so thats not NULL using these commands u cannot fetch NULL records.</p>
+<p>the only solution is IS [NULL]</p>
+
+<pre><code class="language-sql">--those is not getting commission
+SELECT employee_id, first_name, Salary, commission_pct FROM employees
+WHERE commission_pct IS NULL;
+
+--those who getting commisssion
+SELECT employee_id, first_name, Salary, commission_pct FROM employees
+WHERE commission_pct IS NOT NULL;
+
+--who donnot have department ID
+SELECT employee_id, first_name, Salary, commission_pct, department_id FROM employees
+WHERE department_id IS NULL;
+</code></pre>
+
+<h4>OR and AND Operators</h4>
+
+<pre><code class="language-sql">--WHERE department_id = 90 OR department_id = 60
+--this is same as IN operation but we specify 2only exactly. --OR oprator will check any 1 condition satisfies it display the data
+
+--OR -> Any 1 condition satisfies
+--AND -> Should satisty both condition.
+
+SELECT employee_id, first_name, Salary, commission_pct, department_id FROM employees
+WHERE department_id = 60 OR department_id =90;
+
+SELECT employee_id, first_name, Salary, commission_pct, department_id FROM employees
+WHERE first_name = 'Steven' OR department_id =90;
+
+SELECT employee_id, first_name, Salary, commission_pct, department_id FROM employees
+WHERE first_name = 'Steven' AND department_id =90;
+
+--If a employee working in a department maybe department id 50 or 90 but name should be steven.
+SELECT employee_id, first_name, Salary, department_id FROM employees
+WHERE department_id =90 OR department_id=50 AND first_name='Steven';
+
+SELECT employee_id, first_name, Salary, department_id FROM employees
+WHERE (department_id =90 OR department_id=50) AND first_name='Steven';
+</code></pre>
+
+<h4>Logic Thinking</h4>
+<p>the is an offer of a company
+1. those is buy red shirt or small size shirt
+2. those who buy black shirt or any medium size.</p>
+
+<pre><code class="language-sql">/*
+WHEHRE color='red' OR size='s' AND color ='black' OR size ='M'; -- this is wrong bcs the operation will occur for size s and color black so we need to write.
+
+WHERE (color = 'Red' OR size = 's') AND (color = 'Black' OR size ='M'); ? Correct
+
+SELECT * FROM shirt_tb
+WHERE (col='Red' AND siz='S') OR (col='Black' AND siz='M'); -- Correct with tested
+*/
+</code></pre>
+
+<h4>Mobile Number Validation Example</h4>
+<pre><code class="language-sql">SELECT * FROM mobile_tb
+WHERE LENGTH(mobile)=10;
+
+SELECT * FROM mobile_tb
+WHERE LENGTH(mobile)<>10;
+</code></pre>
+
+<h4>SORTING</h4>
+<pre><code class="language-sql">SELECT first_name, last_name FROM employees
+ORDER BY first_name ASC;
+
+SELECT first_name, last_name FROM employees
+ORDER BY first_name DESC;
+
+SELECT first_name, last_name FROM employees
+ORDER BY first_name;
+
+--Postional Based Sorting
+SELECT * FROM employees
+ORDER BY 4 ASC;
+
+-- Here Salary is multipled by 12 and gave name Alias and order by Alias.
+SELECT first_name, salary, 12*salary CTC FROM employees
+ORDER BY CTC ASC;
+
+--Sorting 2 Columns 1 ASC and another DeSc bcs without mention sort by ASC.
+SELECT employee_id, first_name, hire_date, department_id, salary 
+FROM employees
+ORDER BY department_id, salary DESC;
+
+SELECT first_name, department_id, salary FROM employees
+ORDER BY department_id ASC, salary DESC;
+
+SELECT employee_id, first_name, hire_date, department_id, salary 
+FROM employees
+ORDER BY department_id, salary;
+
+SELECT employee_id, first_name, hire_date, department_id
+FROM employees
+ORDER BY department_id DESC;
+
+-- while DESC null will get priority to avoid this NULL will be first.
+SELECT employee_id, first_name, hire_date, department_id
+FROM employees
+ORDER BY department_id DESC NULLS LAST;
+
+SELECT employee_id, first_name, hire_date, department_id
+FROM employees
+ORDER BY department_id ASC NULLS FIRST;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </article>
+
+  </div>
+
+         
+          <div class="pagination">
+             
+                <a href="./2.Retriving Data.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> Back </i>
+                </button>
+                <a href="./4.Functions.html" class="btn btn-outline" id="nextPage"> Next <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+
+
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>

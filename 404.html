@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .graphic {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 2px solid transparent;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #4f46e5;
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .additional-text {
+            color: #718096;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .graphic {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+
+          <img src="./assets/img/404.svg" alt="404 graphic" class="graphic">
+        
+
+        <h1 class="error-message">Oops! The page you're looking for seems to have disappeared.</h1>
+        
+        <a href="index.html" class="btn">Return to Homepage</a>
+        
+        <p class="additional-text">
+            If you believe this is an error, please contact our support team.
+        </p>
+    </div>
+</body>
+</html>

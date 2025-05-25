@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub Query</title>
+     <link rel="icon" href="../../assets/img/icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html" class="logo-link">
+                        <i class="fas fa-database"></i>
+                        <div class="logo-text">SQL<span> Master</span></div>
+                     </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>Sub Query</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge intermediate">intermediate</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 2h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+
+
+<h4>SUB Query()</h4>
+<p>Query within another Query
+Included with ()
+Inner Query will get Executed First based on the Outer Query will get Executed.</p>
+
+<h4>Types of Subquery</h4>
+<ul>
+    <li>Single Row Subquery</li>
+    <li>Multiple Row Sub Query</li>
+    <li>Scalar Sub Query (SELECT clause)</li>
+    <li>Inline View (FROM clause)
+        <ul>
+            <li>Multiple Column Sub Query</li>
+            <li>Correlated Sub Query</li>
+        </ul>
+    </li>
+</ul>
+
+<p>IN and EXISTS</p>
+
+<h4>Single Row Sub Query</h4>
+<p>If your Query Returns Exactly One Row | Single Row Sub Query
+Single Row Sub Query : Operators &lt; &gt; &lt;= &gt;= &lt;&gt;</p>
+
+<pre><code class="language-sql">--Who are all getting Salary more than Neena Salary?
+SELECT employee_id
+    , first_name
+    , hire_date
+    , salary
+    , department_id
+FROM employees
+WHERE salary > (SELECT salary FROM employees WHERE first_name = 'Neena');
+
+-- Who are all getting salary more than Avg salary of the company?
+SELECT employee_id
+    , first_name
+    , hire_date
+    , salary
+    , department_id
+FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees);
+    
+-- Display all the details of employees who is getting Max Salary?
+SELECT * FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
+</code></pre>
+
+<h4>Multiple Row Sub Query</h4>
+<p>If your Query return more than one Row | Multiple Row Sub Query.
+Multiple Row Sub Query : Operators IN ALL ANY</p>
+
+<pre><code class="language-sql">SELECT * FROM employees
+WHERE salary IN (SELECT salary FROM employees WHERE first_name = 'Alexander');
+
+SELECT * FROM employees 
+WHERE salary > ANY (SELECT salary from employees WHERE first_name ='Alexander');
+
+-- Who are all Working as a Manager / Project_id?
+SELECT * FROM employees
+WHERE employee_id IN (SELECT manager_id FROM employees);
+
+-- Who are all not Working as a Manager / Project_id?
+SELECT * FROM employees
+WHERE employee_id NOT IN(SELECT manager_id FROM employees WHERE manager_id IS NOT NULL);
+
+-- Write a Query to Display all Manager Names?
+SELECT employee_id, first_name manager_name
+FROM employees
+WHERE employee_id IN (SELECT manager_id FROM employees);
+
+-- Display all department_id which contains employees?
+SELECT employee_id, department_id FROM employees
+WHERE department_id IN (SELECT department_id FROM employees);
+
+SELECT DISTINCT department_id
+FROM employees
+WHERE employee_id In (SELECT employee_id FROM employees);
+
+-- Display all department_names which contains employees?
+SELECT * FROM departments
+WHERE department_id IN (SELECT department_id FROM employees)
+
+-- Display all department_name which dont have employees?
+SELECT * FROM departments 
+WHERE department_id NOT IN (SELECT department_id FROM employees WHERE department_id IS NOT NULL);
+</code></pre>
+
+<h4>Subquery Locations</h4>
+<pre><code class="language-sql">SELECT              -- Scalar Sub Query
+FROM                -- Inline View
+WHERE
+    - GROUP BY
+HAVING
+    - ORDER BY
+</code></pre>
+
+<pre><code class="language-sql">SELECT department_id, COUNT(*) 
+FROM employees
+WHERE department_id IN (10,20,30,40,50)
+GROUP BY department_id;
+
+SELECT 
+       (SELECT COUNT(*) FROM employees WHERE department_id =10) administration
+     , (SELECT COUNT(*) FROM employees WHERE department_id =20) marketing
+     , (SELECT COUNT(*) FROM employees WHERE department_id =30) purchase
+     , (SELECT COUNT(*) FROM employees WHERE department_id =40) Human_Resources
+     , (SELECT COUNT(*) FROM employees WHERE department_id =50) shipping
+     , (SELECT COUNT(*) FROM employees WHERE department_id IN (10,20,30,40,50)) total
+FROM dual;
+</code></pre>
+
+<h4>Display employee details with department name - 2 methods</h4>
+<pre><code class="language-sql">-- using Join
+SELECT e.employee_id
+     , e.first_name
+     , e.hire_date
+     , e.salary
+     , e.department_id
+     , d.department_name
+FROM employees e, departments d
+WHERE e.department_id = d.department_id;
+
+-- Using Sub Query
+SELECT e.employee_id
+     , e.first_name
+     , e.hire_date
+     , e.salary
+     , e.department_id
+     , (SELECT d.department_name FROM departments d WHERE d.department_id = e.department_id)
+FROM employees e;
+</code></pre>
+
+<h4>Inline VIEW</h4>
+<p>Named Sub Query in FROM Clause
+We are Selecting Data from intermediate resultset.</p>
+
+<pre><code class="language-sql">-- Display all the departments which contain more no of employees?
+SELECT X.* 
+FROM (SELECT department_id, COUNT(*) dcount FROM employees GROUP BY department_id) X
+    , (SELECT MAX(COUNT(*)) dmcount FROM employees GROUP BY department_id) Y
+WHERE X.dcount = Y.dmcount;
+
+-- Display all the department which is allocated with more salary?
+SELECT X.*    
+FROM (SELECT department_id, SUM(salary) sumsal FROM employees GROUP BY department_id) X
+    , (SELECT MAX(SUM(salary))msumsal FROM employees GROUP BY department_id) Y
+WHERE X.sumsal = Y.msumsal;
+
+-- Display the manager_id and no of employees reporting to them?
+SELECT manager_id, COUNT(*) FROM employees GROUP BY manager_id;
+    
+-- Display the manager_id who is having more no of employees in their team.
+SELECT x.*
+FROM (SELECT manager_id, COUNT(*)dcount FROM employees GROUP BY manager_id)X
+    , (SELECT MAX(COUNT(*))mcount FROM employees GROUP BY manager_id)Y
+WHERE X.dcount = Y.mcount;
+</code></pre>
+
+<h4>Correlated Sub QUERY</h4>
+<ul>
+    <li>Outer query will get executed first.</li>
+    <li>We cant execute inner query alone.</li>
+    <li>For each row input will be different.</li>
+    <li>Correlated is known as synchronished subquery.</li>
+</ul>
+
+<pre><code class="language-sql">--Display who are all getting salary more than avg salary of their department.
+SELECT e.employee_id, e.first_name,e.hire_date,e.salary, e.department_id
+FROM employees e
+WHERE e.salary >(SELECT AVG(salary) FROM employees WHERE department_id = e.department_id);
+
+--Who are all getting salary more than their manager
+SELECT e.employee_id, e.first_name,e.hire_date,e.salary, e.manager_id
+FROM employees e
+WHERE e.salary >(SELECT salary FROM employees WHERE employee_id = e.manager_id);
+
+--Who are all hired before their manager
+SELECT e.employee_id, e.first_name, e.hire_date, e.salary, e.manager_id
+FROM employees e
+WHERE e.hire_date < (SELECT hire_date FROM employees WHERE employee_id = e.manager_id);
+</code></pre>
+
+<h4>Multiple column sub query</h4>
+<pre><code class="language-sql">-- Display all the employees where department_id and manager_id of Neena's manager_id and department_id dont include Neena.
+SELECT employee_id, first_name, hire_date, salary, department_id, manager_id 
+FROM employees
+WHERE department_id = (SELECT department_id FROM employees WHERE first_name ='Neena')
+AND manager_id =(SELECT manager_id FROM employees WHERE first_name = 'Neena')
+AND first_name <>'Neena';
+
+SELECT employee_id, first_name, hire_date, salary, department_id, manager_id 
+FROM employees
+WHERE (department_id,manager_id) = (SELECT department_id,manager_id FROM employees WHERE first_name = 'Neena')
+AND first_name <>'Neena';
+</code></pre>
+
+<h4>IN AND EXISTS</h4>
+<pre><code class="language-sql">SELECT * FROM employees
+WHERE employee_id IN (SELECT employee_id FROM employees WHERE department_id = 90);
+
+SELECT * FROM employees
+WHERE EXISTS (SELECT 1 FROM employees WHERE department_id = 90);
+
+SELECT * FROM employees
+WHERE NOT EXISTS (SELECT 1 FROM employees WHERE department_id = 270);
+
+-- IN vs EXISTS
+-- IN     - collecting data 
+-- EXISTS - To check Data available or not.
+
+-- Display department_id and department_name of all the department which contains employees?
+SELECT d.department_id, d.department_name 
+FROM departments d 
+WHERE EXISTS (SELECT 1 FROM employees WHERE department_id = d.department_id);
+
+-- Display department_name Which doent contains any employees.
+SELECT department_name
+FROM departments d
+WHERE NOT EXISTS (SELECT department_id FROM employees e WHERE e.department_id = d.department_id)
+</code></pre>
+
+<h4>Key Definitions</h4>
+<ul>
+    <li><strong>Subquery</strong> – write a query inside another query.</li>
+    <li><strong>ANY</strong> – retrieve data by comparing a value with a set of values returned by a subquery.</li>
+    <li><strong>ALL</strong> – query data by comparing a value with a list of values returned by a subquery.</li>
+    <li><strong>EXISTS</strong> – check for the existence of rows returned by a subquery.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </article>
+
+  </div>
+
+         
+          <div class="pagination">
+             
+                <a href="./6.Joins.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> Back </i>
+                </button>
+                <a href="./8.Statements.html" class="btn btn-outline" id="nextPage"> Next <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+
+
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>

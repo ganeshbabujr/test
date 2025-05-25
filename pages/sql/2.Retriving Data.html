@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Retrieval</title>
+     <link rel="icon" href="../../assets/img/icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html" class="logo-link">
+                        <i class="fas fa-database"></i>
+                        <div class="logo-text">SQL<span> Master</span></div>
+                     </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>Data Retrieval</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge beginner">beginner</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 2 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+
+
+
+
+
+<pre><code class="language-sql">
+SELECT * FROM employees;
+
+SELECT employee_id, first_name, hire_date, salary, department_id FROM employees;
+
+SELECT owner, object_name, object_type, status FROM all_objects;  
+</code></pre>
+
+
+
+<pre><code class="language-sql">
+SELECT employee_id, first_name, hire_date, salary, salary+5000 FROM employees;
+
+SELECT employee_id, first_name, hire_date, salary, 12*salary FROM employees;
+</code></pre>
+
+
+<p>
+PEMDAS        |  Left to Right   L -> R
+Parenthesis Exponential Multiplication Division Addition Subtraction
+
+Please Excuse My Dear Aunt Sally
+
+<h4>Alias(As)</h4>
+	Used to rename column heading
+	column_name / expression As "ALIAS_NAME"
+	Mostly used with expression
+
+    </p>
+<pre><code class="language-sql">
+SELECT employee_id, first_name, hire_date, salary, 12*salary AS "ANN_SAL" FROM employees;
+SELECT employee_id, first_name, hire_date, salary, 12*salary    "ANN_SAL" FROM employees;
+SELECT employee_id, first_name, hire_date, salary, 12*salary     ANN_SAL  FROM employees;
+SELECT employee_id, first_name, hire_date, salary, 12*salary    "ANN SAL" FROM employees;
+SELECT employee_id, first_name, hire_date, salary, 12*salary    "Ann_Sal" FROM employees;
+</code></pre>
+
+
+<h4>|| Concordination</h4>
+
+<pre><code class="language-sql">
+SELECT first_name, salary FROM employees;
+SELECT first_name || salary FROM employees;
+SELECT first_name ||' '|| salary FROM employees;
+SELECT first_name ||' Salary is '|| salary FROM employees;
+SELECT first_name ||' Salary is '|| salary AS "Salary Details" FROM employees;
+SELECT first_name ||' Salary is '|| salary    "Salary Details" FROM employees;
+</code></pre>
+
+
+<h3>Steven's Salary is 24000</h3>
+
+--10G    Q'[ ]'
+
+<pre><code class="language-sql">
+SELECT first_name ||Q'['s Salary is ]'|| salary    "Salary Details" FROM employees;
+SELECT first_name ||'''s Salary is '|| salary    "Salary Details" FROM employees;
+SELECT 'X' || first_name ||Q'['s Salary is ]'|| salary ||'X' "Salary Details" FROM employees;
+SELECT '''''' || first_name ||Q'['s Salary is ]'|| salary ||'''''' "Salary Details" FROM employees;
+ </code></pre>
+
+ <p>
+Standards
+
+	-> We can Write Queries in multiple lines.	
+	-> Nothing is Case sensitive Except Data ( Ganesh | ganesh | GANESH )
+	-> Date is FORMAT SENSITIVE (DD-Mon-YY) - 05-SEP-21  || 05-SEP-2021 (Character)
+	-> Clauses and keywords - UPPER CASE
+	-> isqlplus  ;(Optional)     |   sqlplus  ;(Mandatory)
+</p>
+
+<pre><code class="language-sql">
+SELECT employee_id, first_name, hire_date, salary, department_id
+  FROM employees;
+
+SELECT employee_id
+  , first_name
+  , hire_date
+  , salary
+  , department_id
+  FROM employees;
+  </code></pre>
+
+
+  <p>
+NULL  -  Unknown Value  |  Unassigned value  |
+
+Null <> 0
+Null <> Space
+Null <> Special character ( isqlplus - | sqlplus  | sql developer (null))
+Null <> Null
+Null + 200 = NUll
+Any Arithmetic operation with Null is NUll
+</p>
+
+
+-- To find the Null data using where (i.e where employee_id = NULL is wrong always use i.e WHERE employee_id IS NULL)
+
+
+<pre><code class="language-sql">
+SELECT employee_id, first_name, salary, commission_pct FROM employees;
+
+SELECT employee_id, first_name, salary, commission_pct, commission_pct+10 FROM employees;
+ </code></pre>                
+
+ <p>
+--DESC[RIBE]
+DESCRIBE employees;
+DESC departments;
+</p>
+
+--DISTINCT | UNIQUE
+
+<pre><code class="language-sql">
+SELECT department_id FROM employees;
+SELECT DISTINCT department_id FROM employees;
+SELECT UNIQUE department_id FROM employees;
+
+SELECT DISTINCT department_id, job_id FROM employees ORDER BY 1,2;
+</code></pre>   
+
+-- Single Line comment
+
+<pre><code class="language-sql">
+SELECT 
+    employee_id
+  , first_name
+--  , hire_date
+  , salary
+  , department_id
+  FROM 
+     employees;
+</code></pre>   
+
+/*
+	Multiple Line comment
+*/
+
+<pre><code class="language-sql">
+SELECT 
+    employee_id
+  , first_name
+ /* , hire_date
+   , salary
+*/
+  , department_id
+  FROM 
+     employees;
+</code></pre>   
+
+<p>
+Dual Table 
+		Dummy Table in Oracle to process our own data
+		1 Row | we can have multiple columns
+		Default Column Name : DUMMY 
+		Default Data : X
+		Data type : VARCHAR2
+		Owner : SYS User
+</p>
+
+<pre><code class="language-sql">		
+SELECT * FROM dual;
+SELECT 12*1000 FROM dual;
+SELECT 'GANESH' name,  45000 "Salary" FROM dual;
+
+</code></pre>   
+
+
+
+
+
+
+
+<HR>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </article>
+
+  </div>
+
+         
+          <div class="pagination">
+             
+                <a href="./1.Introduction.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> Back </i>
+                </button>
+                <a href="./3.Restriction Data.html" class="btn btn-outline" id="nextPage"> Next <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+
+
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statements</title>
+     <link rel="icon" href="../../assets/img/icon.png" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/css/page_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html" class="logo-link">
+                        <i class="fas fa-database"></i>
+                        <div class="logo-text">SQL<span> Master</span></div>
+                     </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../sql_topics.html"><i class="fas fa-table"></i> SQL</a></li>
+                    <li><a href="../plsql_topics.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Interview Prep</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-user"></i> Account</a></li>
+                </ul>
+                 <div class="mobile-menu" id="mobileMenuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<br><br>
+
+    <!-- Topic Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-header">
+                <h1>Statements</h1>
+                <div class="topic-meta">
+                    <span class="difficulty-badge intermediate">intermediate</span>
+                    <span class="lesson-count"><i class="fas fa-list-ol"></i> 3 lessons</span>
+                    <span class="duration"><i class="fas fa-clock"></i> 3h 30m</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <article class="lesson-content">
+
+
+
+
+
+<h4>Statements (Structure Objects)</h4>
+<p>1. DDL - Data Definition Language<br>
+2. DML - Data Manipulation Language<br>
+3. TCL - Transaction Control Language<br>
+4. DCL - Data Control Language</p>
+
+<h4>1. DDL - Data Definition Language (CARDT)</h4>
+<pre><code class="language-sql">CREATE    -- We can write Sub Query in CREATE Statement
+ALTER
+    ADD MODIFY RENAME DROP   --Column Level                 
+RENAME
+DROP
+TRUNCATE</code></pre>
+
+<h4>2. DML - Data Manipulation Language (Data)</h4>
+<pre><code class="language-sql">INSERT    -- We can write Sub Query in INSERT Statement
+UPDATE
+DELETE
+MERGE (INSERT+UPDATE)    --Constraints | SQLPLUS (Clientside Tool)</code></pre>
+
+<h4>3. TCL-Transaction Control Language</h4>
+<pre><code class="language-sql">COMMIT
+ROLLBACK
+SAVEPOINT</code></pre>
+
+<h4>4. DCL-Data Control Language</h4>
+<pre><code class="language-sql">GRANT
+REVOKE</code></pre>
+
+<h4>Data Type in oracle</h4>
+<pre><code class="language-sql">1. NUMBER(P,S) 
+2. VARCHAR
+3. CHAR
+4. DATE
+5. TIMESTAMP
+6. LONG
+7. CLOB
+8. BLOB
+9. RAW
+10.XML_TYPE
+11.ROWID</code></pre>
+
+<h4>1. NUMBER</h4>
+<pre><code class="language-sql">NUMBER(P,S)         0-9        i.e employee-id NUMBER         -- P- Precision - no. of digits in a number
+Size: Optional                                              -- S Scale - no of digits in Decimal point
+Max size: 9999...9(38)
+
+i.e 
+   salary_pt       569.45
+   salary        NUMBER(5,2)            -- 5 is Total Digit in Number and 2 is decimal
+   
+i.e 
+   salary_pt      23987.985
+   salary       NUMBER(8,3)</code></pre>
+
+<h4>2. VARCHAR</h4>
+<p>Variable Character LENGTH --oracle changed VARCHAR to VARCHAR2 if u use VARCHAR it change to VARCHAR2 internally</p>
+<pre><code class="language-sql">VARCHAR2        0-9 | A-Z | a-z | Special Character        i.e first_name VARCHAR2(30) | email VARCHAR2(40)
+Size: Mandatory
+Max: 4000            --Upto 11g we can use Max 4000 In 12C|18c|19c we can Increase the Size i.e 7000 up to 32767
+ALTER SYSTEM SET max_string_size = EXTENDED     --to increase the max size upto 32767
+ALTER SYSTEM SET max_string_size=DEFAULT        -- to set default size
+ALTER SYSTEM SET nls_date_format=DD/Mon/YYYY    -- To change the Date Format of Oracle from DD Mon YY to any i.e DD/Mon/YYYY
+-- DBA team will use this query</code></pre>
+
+<h4>Diff between VARCHAR and VARCHAR2</h4>
+<p>VARCHAR is a Data Type which is replaced by VARCHAR2 now.</p>
+
+<h4>3. CHAR</h4>
+<p>Fixed Character LENGTH</p>
+<pre><code class="language-sql">CHAR        0-9 | A-Z | a-z | Special Character        /*i.e first_name CHAR(30) | mail CHAR(50)*/ -- we can use VARCHAR2 bcs 
+Size: Optional | Default:1                              always use VARCHAR2 instead of CHAR first_name VARCHAR2(30)
+Maximum: 2000</code></pre>
+
+<h4>Diff between VARCHAR2 and CHAR?</h4>
+<p>VARCHAR2 is variable character length while CHAR is a Fixed Character Length</p>
+
+<h4>4. DATE</h4>
+<pre><code class="language-sql">DATE        i.e hire_dt DATE      
+Default: 7
+
+TRUNC(SYSDATE) = TRUNC(SYSDATE)</code></pre>
+
+<h4>5. TIMESTAMP</h4>
+<pre><code class="language-sql">SELECT SYSTIMESTAMP FROM dual;
+
+06-SEP-22 03.23.12.404000 AM +05:30 _dttm i.e login_dttm</code></pre>
+
+<h4>6. LONG</h4>
+<p>Store 2GB of Data</p>
+<pre><code class="language-sql">Restrictions
+-- Per table only one LONG column
+-- We Cannot use it in ORDER BY and GROUP BY
+-- Cannot COPY LONG column -Not possible to copy</code></pre>
+
+<h4>7. CLOB - Character Large object</h4>
+<p>Store 4GB of DATABASE</p>
+<pre><code class="language-sql">-- To Overcome to use of CLOB we use EXTENDED in VARCHAR2 to increase size in VARCHAR2
+-- We Cannot use it in ORDER BY and GROUP BY
+-- Cannot COPY CLOB column -Not possible to copy</code></pre>
+
+<h4>8. BLOB - Binary Large Object</h4>
+<p>Store 4gb (image/Video)</p>
+
+<h4>2) DDL- Data Define Language (CARDT)</h4>
+<pre><code class="language-sql">CREATE    -- We can write Sub Query in CREATE Statement
+ALTER
+    ADD RENAME MODIFY DROP   --Column Level               -- there is 2 RENAME and DROP so using column level mention as COLUMN i.e RENAME COLUMN
+RENAME                                                      -- RENAME test_tb TO test1_tb; Table rename
+DROP
+TRUNCATE</code></pre>
+
+<h4>Creating a TABLE</h4>
+<pre><code class="language-sql">CREATE TABLE student_tb
+(
+  student_id    NUMBER                        --for NUMBER size is optional if u need u can give
+, first_name    VARCHAR2(30)
+, gender        CHAR                          -- for CHAR default 1 if u need we can give
+, dob           DATE                          --for Date Default size is 7
+, department_id VARCHAR(3)
+);</code></pre>
+
+<h4>ALTER</h4>
+<pre><code class="language-sql">-- Column level changes 
+--Feedback: Table Altered
+
+ALTER TABLE student_tb ADD feedback LONG;                     -- adding new column feedback as LONG column.
+ALTER TABLE student_tb RENAME COLUMN department_id TO department_no;  -- renaming department_id to department_no 
+ALTER TABLE student_tb MODIFY department_id NUMBER;           -- changing the column datatypr VARCHAR2(3) to NUMBER;
+ALTER TABLE student_tb DROP COLUMN feedback;                  -- Remove feedback column
+
+RENAME student_tb TO stud_tb;                                -- RENAME only Not Mention table
+
+DROP TABLE stud_tb;
+
+TRUNCATE TABLE stud_tb;</code></pre>
+
+<h4>Create Table using Sub Query with Data and Without Data</h4>
+<pre><code class="language-sql">--How to Create Table using Sub Query | Copy Table Data to New Creating Table.
+CREATE TABLE dept2                       --It create table from the Result of Departments table and copy all data in departments table to dept2.
+AS 
+SELECT * FROM departments;
+
+-- Create a Table with Table Structure Like departments but we not need the Data.
+CREATE TABLE dept2
+AS 
+SELECT * FROM departments
+WHERE 1=2;                              -- we can use 1=2 without data it will copy
+                                        -- if you give 1=1 | 2=2
+
+--Create Table using Sub Query With Data
+CREATE TABLE dept2
+AS 
+SELECT * FROM departments
+WHERE 1=1;
+
+-- Adding Multiple Columns.
+ALTER TABLE test_tb
+ADD (name VARCHAR2(30)
+   , salary NUMBER
+   , hire_date DATE);</code></pre>
+
+<h4>DML - Data Manipulation Language</h4>
+<pre><code class="language-sql">INSERT    -- We can write Sub Query in INSERT Statement
+UPDATE
+DELETE
+MERGE (INSERT+UPDATE)</code></pre>
+
+<h4>CREATE TABLE and INSERT TABLE</h4>
+<pre><code class="language-sql">CREATE TABLE students_tb
+(
+  s_id NUMBER
+, s_name VARCHAR2(30)
+, dob DATE
+, job_id VARCHAR2(30) DEFAULT 'IT_PGM'
+, department_id NUMBER
+);
+
+INSERT INTO students_tb (s_id, s_name, dob, job_id, department_id)                     -- 100% Best Practice Giving Column Name 
+                 VALUES(1000, 'Ganesh', SYSDATE-10306, 'Sr_Dev', 66);                 -- Number no need literals 
+
+INSERT INTO students_tb (s_id, s_name, dob, job_id, department_id)
+                 VALUES(1001, 'Jai', '16-Jun-96', 'Jr_Dev', 85);
+
+INSERT INTO students_tb                                                               -- Giving Column Name is not mandatory but giving is Best Practice
+                 VALUES(1004, 'Name 4', '16-Jun-20', 'Jr_Dev', 86);                     
+
+--Feedback: Not Enough VALUES                                                         -- Skipping some values or not providing some values
+INSERT INTO students_tb (s_id, s_name, dob, job_id, department_id)
+                 VALUES(1005, 'name 5', '16-Jun-95', 'Jr_Dev');                      -- Because u mentioned column name department_id and not giving value so error occurred
+
+-- How to insert Null values                             
+INSERT INTO students_tb (s_id, s_name, dob, job_id)                                  -- If u dont have department id then dont mention in column name
+                 VALUES(1005, 'name 5', '16-Jun-95', 'Jr_Dev');
+
+-- If u break the usual ORDER                                                         --It shows Error u need to change the same in column name also
+INSERT INTO students_tb (s_name, s_id, dob, department_id)
+                 VALUES('name 6', 1006, '16-Jun-95', 86);
+
+-- Giving DEFAULT Name for Column                                                     --It will print the Default name which we mention during creating Table if we dont provide value
+INSERT INTO students_tb (s_id, s_name, dob, department_id)
+                 VALUES(1005, 'name 5', '16-Jun-95', 86);</code></pre>
+
+<h4>Inserting Data with Sub Query in 'INSERT'</h4>
+<pre><code class="language-sql">-- Creating table without DATA
+CREATE TABLE ganesh_tb
+AS 
+(SELECT * FROM departments);
+
+INSERT INTO ganesh_tb (SELECT * FROM departments);</code></pre>
+
+<h4>UPDATE</h4>
+<pre><code class="language-sql">-- Changing the name department_name Administrator as Admin  
+UPDATE ganesh_tb
+   SET department_name='Admin'
+WHERE department_id=10;
+
+--Changing 2 or more data in same row.
+UPDATE ganesh_tb
+   SET department_name='Admin'
+   ,   manager_id=101
+   ,   location_id=1500
+WHERE department_id=10;                                         
+
+-- If u Miss the WHERE clause it will update for all rows
+UPDATE ganesh_tb                                                                  --ERROR
+   SET department_name='Admin'
+   ,   manager_id=101
+   ,   location_id=1500</code></pre>
+
+<h4>DELETE</h4>
+<pre><code class="language-sql">DELETE FROM ganesh_tb WHERE department_id=10;
+
+--Delete in Multiple 
+DELETE FROM ganesh_tb WHERE department_id IN (10,40,60,80,100);
+
+-- If u dont give condition it will delete entire Data like TRUNCATE but there is Difference
+DELETE FROM ganesh_tb;</code></pre>
+
+<h4>Diff Between Truncate and Delete</h4>
+<p>TRUNCATE is a DDL Statement while DELETE is a DML Statement</p>
+
+<h3>TCL - Transaction Control Language</h3>
+<pre><code class="language-sql">COMMIT
+ROLLBACK
+SAVEPOINT</code></pre>
+
+<h4>Transaction</h4>
+<p>List of Statements which will be executed between 2 Commit Points</p>
+
+<h4>Deadlock</h4>
+<p>If Two Sessions mutually waiting for each other dead lock will occurs.</p>
+
+<h4>Data Control Language</h4>
+<pre><code class="language-sql">GRANT
+REVOKE</code></pre>
+
+<h4>Create USER</h4>
+<pre><code class="language-sql">CREATE USER ENH_DB
+IDENTIFIED BY 123
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP
+QUOTA 10M ON USERS
+QUOTA 20M ON SYSAUX
+--PASSWORD EXPIRE;</code></pre>
+
+<h4>Password RESET</h4>
+<pre><code class="language-sql">ALTER USER ENH_DB
+IDENTIFIED BY g1234</code></pre>
+
+<h4>Account Lock|Unlock</h4>
+<pre><code class="language-sql">ALTER USER ENH_DB ACCOUNT LOCK;
+
+ALTER USER ENH_DB ACCOUNT UNLOCK;</code></pre>
+
+<h4>USER DROP</h4>
+<pre><code class="language-sql">DROP USER ENH_DB CASCADE;</code></pre>
+
+<h4>Data Dictionary TABLES</h4>
+<pre><code class="language-sql">dba_tablespaces
+dba_users
+user_tables
+user_constraints
+user_con_columns
+user_tab_columns
+user_views
+user_sequences
+all_directories
+all_objects
+dict
+tabs</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </article>
+
+  </div>
+
+         
+          <div class="pagination">
+             
+                <a href="./7.Sub Query.html" class="btn btn-outline" id="nextPage"><i class="fas fa-chevron-left"></i> Back </i>
+                </button>
+                <a href="." class="btn btn-outline" id="nextPage"> Next <i class="fas fa-chevron-right"></i>
+                </a>
+                </button>
+
+
+     </div>
+
+    </section>
+
+
+<!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-plsql.min.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#4cc9f0"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#4cc9f0",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+</html>
